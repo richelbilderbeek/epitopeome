@@ -3,7 +3,7 @@
 #include <boost/test/unit_test.hpp>
 #include <QFile>
 #include <iostream>
-BOOST_AUTO_TEST_CASE(test_tmh_file_must_have_4_exact_locs_cpp)
+BOOST_AUTO_TEST_CASE(locatome_must_be_exactly_cpp)
 {
   const std::string tmh_filename = "tmhmm.txt";
   {

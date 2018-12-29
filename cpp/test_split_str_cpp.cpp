@@ -4,7 +4,7 @@
 #include <QFile>
 #include <iostream>
 
-BOOST_AUTO_TEST_CASE(test_SeperateString)
+BOOST_AUTO_TEST_CASE(test_split_str)
 {
   {
     { //Single input, seperator of type char

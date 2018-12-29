@@ -4,7 +4,7 @@
 #include <QFile>
 #include <iostream>
 
-BOOST_AUTO_TEST_CASE(locatome_must_be_exactly_cpp)
+BOOST_AUTO_TEST_CASE(epitopeome_must_be_exactly_cpp)
 {
   const std::string tmh_filename = "tmhmm.txt";
   {
