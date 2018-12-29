@@ -51,7 +51,16 @@ tr|I6WZ58|I6WZ58_MYCTU	TMHMM2.0	inside	   309   313
    + std::string(313 - 309 + 1, 'i')
   ;
 
-  const std::string expected_raw = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiitttttttttttttttttttttttooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooootttttttttttttttttttttttiiiiiiiiiiiittttttttttttttttttoooooooooooooottttttttttttttttttttiiiii"; //!OCLINT
+  const std::string expected_raw
+  = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    "ttttttttttttttttttttttt"
+    "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"  //!OCLINT indeed long
+    "ttttttttttttttttttttttt"
+    "iiiiiiiiiiii"
+    "tttttttttttttttttt"
+    "oooooooooooooo"
+    "ttttttttttttttttttttiiiii"
+  ;
   assert(expected == expected_raw);
   assert(expected.size() == 313);
   BOOST_CHECK_EQUAL(value.size(), 313);
