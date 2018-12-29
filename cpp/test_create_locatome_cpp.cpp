@@ -12,11 +12,11 @@ BOOST_AUTO_TEST_CASE(test_tmh_file_must_have_4_exact_locs_cpp)
   }
 
   assert(QFile::exists(tmh_filename.c_str()));
-  const auto locs = create_locatome_cpp(tmh_filename);
-  BOOST_CHECK_EQUAL(locs.size() , 1);
-  const std::string& key = (*locs.begin()).first;
+  const auto locatome = create_locatome_cpp(tmh_filename);
+  BOOST_CHECK_EQUAL(locatome.size() , 1);
+  const std::string& key = (*locatome.begin()).first;
   BOOST_CHECK(key == std::string("tr|I6WZ58|I6WZ58_MYCTU"));
-  const std::string& value = (*locs.begin()).second;
+  const std::string& value = (*locatome.begin()).second;
 
 /*
 >tr|I6WZ58|I6WZ58_MYCTU Probable conserved transmembrane protein OS=Mycobacterium tuberculosis (strain ATCC 25618 / H37Rv) OX=83332 GN=Rv0713 PE=1 SV=1

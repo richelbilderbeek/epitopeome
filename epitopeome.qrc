@@ -2,5 +2,6 @@
     <qresource prefix="/epitopeome">
         <file alias="tmhmm.txt">inst/extdata/tmhmm.txt</file>
         <file alias="proteome.fasta">inst/extdata/proteome.fasta</file>
+        <file alias="netmhc2pan.csv">inst/extdata/netmhc2pan.csv</file>
     </qresource>
 </RCC>
