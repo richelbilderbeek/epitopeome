@@ -29,13 +29,37 @@ BOOST_AUTO_TEST_CASE(locatome_must_be_exactly_cpp)
   for (const int pos_human: begin_pos_human)
   {
     int i = pos_human - 1;
-    const int j = i + 16;
+    const int j = i + 15;
     for ( ; i != j ; ++i)
     {
       expected[i] = std::toupper(expected[i]);
     }
   }
-  const std::string expected_raw = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiitttttttttttttttttttttttooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTTTIIIIIIIIIIIittttTTTTTTTTTTTTTTOOOOOOoooooooottttttttttttttttttttiiiii";
+  const std::string expected_raw = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    "ttttttttttttttttttttttt"
+    "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+  // 2
+  // 1         2         3         4         5         6         7         8
+  // 0123456789012345678901234567890123456789012345678901234567890123456789012345678
+  // ***************  |           |                     |
+  //  *************** |           |                     |
+  //   ***************|           |                     |
+  //    ***************           |                     |
+  //     ***************          |                     |
+  //                  ***************                   |
+  //                   ***************                  |
+  //                    ***************                 |
+  //                     ***************                |
+  //                              ***************       |
+  //                               ***************      |
+  //                                                    ***************
+  //                                                     ***************
+  //                                                      ***************
+  //                                                       ***************
+  //                                                        ***************
+    "OOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTTTIIIIIIIIIIiittttTTTTTTTTTTTTTTOOOOOooooooooo"
+    "ttttttttttttttttttttiiiii"
+  ;
   assert(expected == expected_raw);
 
   //BOOST_CHECK_EQUAL(value, expected);
