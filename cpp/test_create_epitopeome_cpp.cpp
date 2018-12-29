@@ -11,7 +11,13 @@ BOOST_AUTO_TEST_CASE(locatome_must_be_exactly_cpp)
     tmh_file.copy(tmh_filename.c_str());
   }
   assert(QFile::exists(tmh_filename.c_str()));
-  //const auto locatome = create_locatome_cpp(tmh_filename);
+
+  const std::string netmhc2pan_filename = "netmhc2pan.csv";
+  {
+    QFile tmh_file(":/epitopeome/netmhc2pan.csv");
+    tmh_file.copy(netmhc2pan_filename.c_str());
+  }
+  assert(QFile::exists(netmhc2pan_filename.c_str()));
 
   const std::string locatome =
      std::string( 32 -   1 + 1, 'i')
@@ -35,12 +41,13 @@ BOOST_AUTO_TEST_CASE(locatome_must_be_exactly_cpp)
       expected[i] = std::toupper(expected[i]);
     }
   }
-  const std::string expected_raw = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+  const std::string expected_raw
+  = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
     "ttttttttttttttttttttttt"
-    "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+    "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" //!OCLINT indeed long
   // 2
   // 1         2         3         4         5         6         7         8
-  // 0123456789012345678901234567890123456789012345678901234567890123456789012345678
+  // 0123456789012345678901234567890123456789012345678901234567890123456789012345678 //!OCLINT indeed long
   // ***************  |           |                     |
   //  *************** |           |                     |
   //   ***************|           |                     |
@@ -57,12 +64,14 @@ BOOST_AUTO_TEST_CASE(locatome_must_be_exactly_cpp)
   //                                                      ***************
   //                                                       ***************
   //                                                        ***************
-    "OOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTTTIIIIIIIIIIiittttTTTTTTTTTTTTTTOOOOOooooooooo"
+    "OOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTTTIIIIIIIIIIiittttTTTTTTTTTTTTTTOOOOOooooooooo" //!OCLINT indeed long
     "ttttttttttttttttttttiiiii"
   ;
   assert(expected == expected_raw);
 
-  //BOOST_CHECK_EQUAL(value, expected);
+  const auto epitopeome = create_epitopeome_cpp(tmh_filename, netmhc2pan_filename);
+
+  BOOST_CHECK_EQUAL(1, epitopeome.size());
   /*
 210,"NVIITLKRAKGPLVF","tr|I6WZ58|I6WZ58_MYCTU",1.4
 211,"VIITLKRAKGPLVFD","tr|I6WZ58|I6WZ58_MYCTU",1.6

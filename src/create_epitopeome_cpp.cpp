@@ -1,4 +1,5 @@
 #include "create_epitopeome_cpp.h"
+#include "create_locatome_cpp.h"
 
 #include <cassert>
 #include <fstream>
@@ -11,8 +12,12 @@
 using namespace std;
 
 std::map<std::string, std::string> create_epitopeome_cpp(
-  const std::string& tmhs_filename
+  const std::string& tmhs_filename,
+  const std::string& /* netmhc2pan_filename */
 ) {
+  const auto locatome = create_locatome_cpp(tmhs_filename);
+  return locatome;
+  /*
   std::map<std::string, std::string> m;
 
   std::ifstream file(tmhs_filename.c_str());
@@ -45,4 +50,5 @@ std::map<std::string, std::string> create_epitopeome_cpp(
     (*m.find(key)).second += locatome_part;
   }
   return m;
+  */
 }
