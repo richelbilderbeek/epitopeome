@@ -3,14 +3,13 @@
 
 #include <map>
 #include <string>
-#include <vector>
 
 //' Creates a FASTA file with only the TMHs
 //' @param tmhs_filename file that contains the TMHs as created by TMHMM
 //' @return nothing
 //' @author Richel J.C. Bilderbeek
 // [[Rcpp::export]]
-std::map<std::string, std::vector<int> > create_tmh_locs_cpp(
+std::map<std::string, std::string> create_locatome_cpp(
   const std::string& tmhs_filename
 );
 
