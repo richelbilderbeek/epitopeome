@@ -12,6 +12,17 @@ create_epitopeome_cpp <- function(tmhs_filename, netmhc2pan_filename) {
 
 #' Creates a FASTA file with only the TMHs
 #' @param tmhs_filename file that contains the TMHs as created by TMHMM
+#' @param netmhc2pan_filename file that contains the NetMHC2pan results
+#' @param epitopeome_filename name of the create epitopeome file, 
+#'   saved in FASTA format
+#' @return nothing
+#' @author Richel J.C. Bilderbeek
+create_epitopeome_file_cpp <- function(tmhs_filename, netmhc2pan_filename, epitopeome_filename) {
+    invisible(.Call(`_epitopeome_create_epitopeome_file_cpp`, tmhs_filename, netmhc2pan_filename, epitopeome_filename))
+}
+
+#' Creates a FASTA file with only the TMHs
+#' @param tmhs_filename file that contains the TMHs as created by TMHMM
 #' @return nothing
 #' @author Richel J.C. Bilderbeek
 create_locatome_cpp <- function(tmhs_filename) {
