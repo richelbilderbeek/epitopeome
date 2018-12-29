@@ -7,11 +7,11 @@
 # Entry point for this project
 SOURCES += \
     cpp/main_test.cpp \
-    cpp/test_create_tmh_locs_cpp.cpp \
-    src/create_tmh_locs_cpp.cpp
+    src/create_locatome_cpp.cpp \
+    cpp/test_create_locatome_cpp.cpp
 
 HEADERS += \
-    src/create_tmh_locs_cpp.h
+    src/create_locatome_cpp.h
 
 INCLUDEPATH += \
     cpp \

@@ -1,5 +1,5 @@
-#ifndef CREATE_TMH_LOCS_CPP_H
-#define CREATE_TMH_LOCS_CPP_H
+#ifndef CREATE_LOCATOME_CPP_H
+#define CREATE_LOCATOME_CPP_H
 
 #include <map>
 #include <string>
@@ -13,7 +13,7 @@ std::map<std::string, std::string> create_locatome_cpp(
   const std::string& tmhs_filename
 );
 
-#endif // CREATE_TMH_LOCS_CPP_H
+#endif // CREATE_LOCATOME_CPP_H
 
 
 
