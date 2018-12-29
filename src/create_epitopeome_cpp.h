@@ -6,6 +6,7 @@
 
 //' Creates a FASTA file with only the TMHs
 //' @param tmhs_filename file that contains the TMHs as created by TMHMM
+//' @param netmhc2pan_filename file that contains the NetMHC2pan results
 //' @return nothing
 //' @author Richel J.C. Bilderbeek
 // [[Rcpp::export]]
