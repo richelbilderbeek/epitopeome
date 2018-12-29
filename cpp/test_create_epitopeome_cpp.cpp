@@ -3,6 +3,41 @@
 #include <boost/test/unit_test.hpp>
 #include <QFile>
 #include <iostream>
+
+BOOST_AUTO_TEST_CASE(test_SeperateString)
+{
+  {
+    { //Single input, seperator of type char
+      const auto v = SeperateString("a",',');
+      BOOST_CHECK(v.size() == 1);
+      BOOST_CHECK(v[0]=="a");
+    }
+    { //Two inputs, seperator of type char
+      const auto v = SeperateString("a,b",',');
+      BOOST_CHECK(v.size() == 2);
+      BOOST_CHECK(v[0]=="a");
+      BOOST_CHECK(v[1]=="b");
+    }
+    {
+      //Five inputs, seperator of type char
+      const auto v = SeperateString("a,bb,ccc,dddd,eeeee",',');
+      BOOST_CHECK(v.size() == 5);
+      BOOST_CHECK(v[0]=="a");
+      BOOST_CHECK(v[1]=="bb");
+      BOOST_CHECK(v[2]=="ccc");
+      BOOST_CHECK(v[3]=="dddd");
+      BOOST_CHECK(v[4]=="eeeee");
+    }
+    { //Three inputs, of which one empty, seperator of type char
+      const auto v = SeperateString("a, ,ccc",',');
+      BOOST_CHECK(v.size() == 3);
+      BOOST_CHECK(v[0]=="a");
+      BOOST_CHECK(v[1]==" ");
+      BOOST_CHECK(v[2]=="ccc");
+    }
+  }
+}
+
 BOOST_AUTO_TEST_CASE(locatome_must_be_exactly_cpp)
 {
   const std::string tmh_filename = "tmhmm.txt";
