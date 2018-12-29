@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/epitopeome">
+        <file alias="tmhmm.txt">inst/extdata/tmhmm.txt</file>
+        <file alias="proteome.fasta">inst/extdata/proteome.fasta</file>
+    </qresource>
+</RCC>

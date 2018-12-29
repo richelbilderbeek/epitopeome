@@ -1,5 +1,8 @@
 ^\.travis\.yml$
 ^epitopeome\.Rproj$
+^epitopeome\.pro$
+^epitopeome\.pro\.user$
+^epitopeome\.qrc$
 ^\.Rproj\.user$
 ^pics/$
 ^doc/$
