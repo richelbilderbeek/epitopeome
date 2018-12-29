@@ -107,6 +107,7 @@ BOOST_AUTO_TEST_CASE(locatome_must_be_exactly_cpp)
   const auto epitopeome = create_epitopeome_cpp(tmh_filename, netmhc2pan_filename);
 
   BOOST_CHECK_EQUAL(1, epitopeome.size());
+  BOOST_CHECK_EQUAL(expected, (*epitopeome.begin()).second);
   /*
 210,"NVIITLKRAKGPLVF","tr|I6WZ58|I6WZ58_MYCTU",1.4
 211,"VIITLKRAKGPLVFD","tr|I6WZ58|I6WZ58_MYCTU",1.6
