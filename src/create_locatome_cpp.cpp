@@ -8,19 +8,7 @@
 #include <cstdlib>
 #include <vector>
 
-#include <boost/algorithm/string/split.hpp>
 using namespace std;
-
-std::vector<std::string> SeperateString(
-  const std::string& input,
-  const char seperator)
-{
-  std::vector<std::string> v;
-  boost::algorithm::split(v,input,
-    std::bind2nd(std::equal_to<char>(), seperator),
-    boost::algorithm::token_compress_on);
-  return v;
-}
 
 std::map<std::string, std::string> create_locatome_cpp(
   const std::string& tmhs_filename

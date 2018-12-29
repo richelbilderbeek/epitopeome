@@ -14,12 +14,6 @@ std::map<std::string, std::string> create_epitopeome_cpp(
   const std::string& netmhc2pan_filename
 );
 
-#include <vector>
-
-std::vector<std::string> SeperateString(
-  const std::string& input,
-  const char seperator);
-
 #endif // CREATE_EPITOPEOME_CPP_H
 
 

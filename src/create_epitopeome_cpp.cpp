@@ -1,5 +1,6 @@
 #include "create_epitopeome_cpp.h"
 #include "create_locatome_cpp.h"
+#include "split_str_cpp.h"
 
 #include <cassert>
 #include <fstream>
@@ -26,7 +27,7 @@ std::map<std::string, std::string> create_epitopeome_cpp(
     //Skip header
     if (line == "\"Pos\",\"Peptide\",\"ID\",\"Rank\"") continue;
 
-    const std::vector<std::string> words = SeperateString(line, ',');
+    const std::vector<std::string> words = split_str(line, ',');
     assert(words.size() == 4);
     const int pos = atoi(words[0].c_str());
     //const std::string peptide = words[1];
