@@ -13,7 +13,6 @@ r_github_packages:
   - MangoTheCat/goodpractice
   - ropensci/spelling
 
-
 before_script:
   # C++14
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test

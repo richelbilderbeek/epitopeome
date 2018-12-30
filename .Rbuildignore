@@ -7,3 +7,11 @@
 ^pics$
 ^doc$
 ^cpp$
+^epitopeome$
+^gmon.out$
+^Makefile$
+^Makefile.Debug$
+^Makefile.Release$
+^netmhc2pan.csv$
+^release$
+^tmhmm.txt$

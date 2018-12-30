@@ -21,7 +21,9 @@ URL: https://github.com/richelbilderbeek/epitopeome
 BugReports: https://github.com/richelbilderbeek/epitopeome/issues
 LinkingTo: 
     Rcpp
-Imports: 
+Imports:
+    netmhc2pan,
+    tmhmm,
     Rcpp
 Suggests: 
     testthat

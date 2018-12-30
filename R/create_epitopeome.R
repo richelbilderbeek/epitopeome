@@ -22,7 +22,7 @@ create_epitopeome <- function(
     file = netmhc2pan_filename,
     row.names = FALSE
   )
-  epitopeome:::create_epitopeome_cpp(
+  epitopeome::create_epitopeome_cpp(
     tmhs_filename = tmhmm_filename,
     netmhc2pan_filename = netmhc2pan_filename
   )
