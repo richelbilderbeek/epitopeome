@@ -13,6 +13,7 @@ r_github_packages:
   - MangoTheCat/goodpractice
   - ropensci/spelling
 
+
 before_script:
   # C++14
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
@@ -25,10 +26,22 @@ before_script:
   # Qt5
   - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev libqt5svg5*
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+  # Install TMHMM
+  - |
+    Rscript -e \
+    "source(\"R/install_tmhmm.R\"); \
+      source(\"R/get_default_tmhmm_folder.R\"); \
+      source(\"R/get_tmhmm_url.R\"); \
+      source(\"R/is_tmhmm_installed.R\"); \
+      source(\"R/is_tmhmm_set_up.R\"); \
+      source(\"R/set_up_tmhmm.R\"); \
+      install_tmhmm(get_tmhmm_url())"
   # Build and run
   - qmake
   - make
   - ./epitopeome
+  # proselint
+  - sudo pip install proselint
 
 after_success:
   - Rscript -e 'lintr::lint_package()'
