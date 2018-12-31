@@ -9,6 +9,8 @@ create_epitopeome <- function(
   netmhc2pan_filename = tempfile(fileext = ".csv")
 ) {
   testit::assert(file.exists(fasta_filename))
+  testit::assert(tmhmm::is_tmhmm_installed())
+  testit::assert(netmhc2pan::is_netmhc2pan_installed())
   testit::assert(all(alleles %in% netmhc2pan::get_netmhc2pan_alleles()))
   # TMHH
   df_tmh <- tmhmm::run_tmhmm(fasta_filename)
