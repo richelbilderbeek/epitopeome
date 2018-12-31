@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{create_epitopeome_cpp}
 \alias{create_epitopeome_cpp}
-\title{Creates a FASTA file with only the TMHs}
+\title{Creates an 'epitopeome' from a TMHMM and NetMHC2pan file}
 \usage{
 create_epitopeome_cpp(tmhs_filename, netmhc2pan_filename)
 }
@@ -12,10 +12,11 @@ create_epitopeome_cpp(tmhs_filename, netmhc2pan_filename)
 \item{netmhc2pan_filename}{file that contains the NetMHC2pan results}
 }
 \value{
-nothing
+a map, with the sequence name as key, and its 'epitopeome'
+  as value
 }
 \description{
-Creates a FASTA file with only the TMHs
+Creates an 'epitopeome' from a TMHMM and NetMHC2pan file
 }
 \author{
 Richel J.C. Bilderbeek

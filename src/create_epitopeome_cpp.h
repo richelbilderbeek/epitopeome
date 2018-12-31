@@ -4,11 +4,13 @@
 #include <map>
 #include <string>
 
-//' Creates a FASTA file with only the TMHs
+//' Creates an 'epitopeome' from a TMHMM and NetMHC2pan file
 //' @param tmhs_filename file that contains the TMHs as created by TMHMM
 //' @param netmhc2pan_filename file that contains the NetMHC2pan results
-//' @return nothing
+//' @return a map, with the sequence name as key, and its 'epitopeome'
+//'   as value
 //' @author Richel J.C. Bilderbeek
+//' @export
 // [[Rcpp::export]]
 std::map<std::string, std::string> create_epitopeome_cpp(
   const std::string& tmhs_filename,

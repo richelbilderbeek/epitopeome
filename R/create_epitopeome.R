@@ -1,4 +1,7 @@
 #' Create epitopeome indicating strong MHC2 binders
+#' @inheritParams default_params_doc
+#' @author Richel J.C. Bilderbeek
+#' @export
 create_epitopeome <- function(
   fasta_filename,
   alleles = "DRB1_0101",
@@ -22,6 +25,7 @@ create_epitopeome <- function(
     file = netmhc2pan_filename,
     row.names = FALSE
   )
+  return()
   epitopeome::create_epitopeome_cpp(
     tmhs_filename = tmhmm_filename,
     netmhc2pan_filename = netmhc2pan_filename
