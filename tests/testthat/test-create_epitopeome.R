@@ -1,6 +1,7 @@
 context("test-create_epitopeome")
 
 test_that("use", {
+  skip("WIP")
   fasta_filename <- system.file(
     "extdata", "proteome.fasta", package = "epitopeome"
   )

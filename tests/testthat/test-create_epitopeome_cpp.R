@@ -1,7 +1,7 @@
 context("test-create_epitopeome_cpp")
 
 test_that("use", {
-
+  skip("WIP")
   epitopeome_filename <- tempfile()
 
   create_epitopeome_file_cpp(

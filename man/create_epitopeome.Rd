@@ -5,14 +5,18 @@
 \title{Create epitopeome indicating strong MHC2 binders}
 \usage{
 create_epitopeome(fasta_filename, alleles = "DRB1_0101",
-  tmhmm_filename = tempfile(fileext = "txt"),
-  netmhc2pan_filename = tempfile(fileext = ".csv"))
+  binding_strength_threshold = 0.05, tmhmm_filename = tempfile(fileext
+  = "txt"), netmhc2pan_filename = tempfile(fileext = ".csv"))
 }
 \arguments{
 \item{fasta_filename}{the name of a FASTA file with protein sequences}
 
 \item{alleles}{one or more alleles, e.g. \code{DRB1_0101}.
 See \link{get_netmhc2pan_alleles} for a full list}
+
+\item{binding_strength_threshold}{threshold of the MHC2 allele's
+binding strength. A low threshold, e.g. 0.05, selects for the top
+5 percent best binders}
 
 \item{tmhmm_filename}{name of the file to store the
 TMHMM output.

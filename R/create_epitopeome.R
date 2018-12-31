@@ -5,6 +5,7 @@
 create_epitopeome <- function(
   fasta_filename,
   alleles = "DRB1_0101",
+  binding_strength_threshold = 0.05,
   tmhmm_filename = tempfile(fileext = "txt"),
   netmhc2pan_filename = tempfile(fileext = ".csv")
 ) {
@@ -24,6 +25,9 @@ create_epitopeome <- function(
     fasta_filename = fasta_filename,
     alleles = alleles
   )
+  df_strong_bindings <- df_bindings[
+    df_bindings$Rank <= binding_strength_threshold,
+  ]
   utils::write.csv(
     x = df_bindings,
     file = netmhc2pan_filename,

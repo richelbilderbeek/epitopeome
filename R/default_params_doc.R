@@ -2,6 +2,9 @@
 #' documentation.
 #' @param alleles one or more alleles, e.g. \code{DRB1_0101}.
 #'   See \link{get_netmhc2pan_alleles} for a full list
+#' @param binding_strength_threshold threshold of the MHC2 allele's
+#'   binding strength. A low threshold, e.g. 0.05, selects for the top
+#'   5 percent best binders
 #' @param fasta_filename the name of a FASTA file with protein sequences
 #' @param netmhc2pan_filename name of the file to store the
 #'   NetMHC2pan output.
@@ -20,6 +23,7 @@
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   alleles,
+  binding_strength_threshold,
   fasta_filename,
   netmhc2pan_filename,
   tmhmm_filename,

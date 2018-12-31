@@ -1,8 +1,8 @@
 context("test-create_locatome")
 
 test_that("use", {
-  if (!tmhmm::is_tmhmm_installed()) return()
   skip("WIP")
+  if (!tmhmm::is_tmhmm_installed()) return()
   fasta_filename <- system.file(
     "extdata", "proteome.fasta", package = "epitopeome"
   )
