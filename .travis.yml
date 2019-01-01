@@ -28,6 +28,7 @@ before_script:
   # Install TMHMM
   - Rscript -e "tmhmm::install_tmhmm(tmhmm::get_tmhmm_url())"
   # Install NetMHC2pan
+  - sudo apt install tcsh
   - Rscript -e "netmhc2pan::install_netmhc2pan(netmhc2pan::get_netmhc2pan_url())"
   # Build and run
   - qmake
