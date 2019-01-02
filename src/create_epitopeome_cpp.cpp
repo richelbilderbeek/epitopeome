@@ -25,10 +25,9 @@ std::map<std::string, std::string> create_epitopeome_cpp(
   for(string line; getline(file, line); )
   {
     //Skip header
-    if (line == "\"Pos\",\"Peptide\",\"ID\",\"Rank\"") continue;
-
+    if (line == "\"Pos\",\"Peptide\",\"ID\",\"Allele\",\"one_minus_log50k\",\"nM\",\"Rank\"") continue;
     const std::vector<std::string> words = split_str(line, ',');
-    assert(words.size() == 4);
+    assert(words.size() == 7);
     const int pos = atoi(words[0].c_str());
     //const std::string peptide = words[1];
     const std::string quoted_id = words[2];

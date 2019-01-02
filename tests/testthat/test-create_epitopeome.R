@@ -11,7 +11,7 @@ test_that("use", {
   tmhmm_filename <- tempfile(fileext = "txt")
   netmhc2pan_filename <- tempfile(fileext = ".csv")
   epitopeome_filename <- tempfile(fileext = ".fasta")
-  binding_strength_threshold <- 100.0
+  binding_strength_threshold <- 5.0
   alleles = "DRB1_0101"
 
   epitopeome <- create_epitopeome(

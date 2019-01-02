@@ -20,13 +20,11 @@ create_epitopeome <- function(
     text = locatome,
     con = tmhmm_filename
   )
-  readLines(tmhmm_filename)
   # NetMHC2pan
   df_bindings <- netmhc2pan::run_netmhc2pan(
     fasta_filename = fasta_filename,
     alleles = alleles
   )
-  testit::assert(!is.character(df_bindings$Pos))
   df_strong_bindings <- df_bindings[
     df_bindings$Rank <= binding_strength_threshold,
   ]
@@ -35,7 +33,6 @@ create_epitopeome <- function(
     file = netmhc2pan_filename,
     row.names = FALSE
   )
-  head(read.csv(netmhc2pan_filename))
   create_epitopeome_file_cpp(
     tmhs_filename = tmhmm_filename,
     netmhc2pan_filename = netmhc2pan_filename,
