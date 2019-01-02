@@ -48,15 +48,15 @@ Create epitopeome indicating strong MHC2 binders
     "extdata", "proteome.fasta", package = "epitopeome"
   )
   epitopeome <- create_epitopeome(fasta_filename)
-  testit::assert(length(epitopeome) == 2)
-  testit::assert(epitopeome[1] == ">tr|I6WZ58|I6WZ58_MYCTU")
-  testit::assert(stringr::str_length(epitopeome[2]) == 313)
-  testit::assert(stringr::str_count(epitopeome[2], "i") == 39)
-  testit::assert(stringr::str_count(epitopeome[2], "m") == 47)
-  testit::assert(stringr::str_count(epitopeome[2], "o") == 163)
-  testit::assert(stringr::str_count(epitopeome[2], "I") == 10)
-  testit::assert(stringr::str_count(epitopeome[2], "M") == 37)
-  testit::assert(stringr::str_count(epitopeome[2], "O") == 17)
+  testthat::expect_equal(2, length(epitopeome) == 2)
+  testthat::expect_equal(">tr|I6WZ58|I6WZ58_MYCTU", epitopeome[1])
+  testthat::expect_equal(313, stringr::str_length(epitopeome[2]))
+  testthat::expect_equal(39, stringr::str_count(epitopeome[2], "i"))
+  testthat::expect_equal(47, stringr::str_count(epitopeome[2], "m"))
+  testthat::expect_equal(163, stringr::str_count(epitopeome[2], "o"))
+  testthat::expect_equal(10, stringr::str_count(epitopeome[2], "I"))
+  testthat::expect_equal(37, stringr::str_count(epitopeome[2], "M"))
+  testthat::expect_equal(17, stringr::str_count(epitopeome[2], "O"))
 }
 \author{
 Richel J.C. Bilderbeek
