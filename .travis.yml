@@ -26,7 +26,7 @@ before_script:
   - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev libqt5svg5*
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   # Install and test TMHMM
-  - Rscript -e "tmhmm::install_tmhmm(tmhmm::get_tmhmm_url())"
+  - Rscript -e "tmhmm::install_tmhmm()"
   - echo -e ">sp|L0T550|RIP2_MYCTU_158_180\nAVLWAGVAFLAFLQLTALVLNLL" > example.fasta
   - |
     ~/.local/share/tmhmm-2.0c/bin/decodeanhmm.Linux_x86_64 \
@@ -34,13 +34,13 @@ before_script:
     example.fasta \
     -f ~/.local/share/tmhmm-2.0c/lib/TMHMM2.0.options || true
   - rm example.fasta
-  # Install NetMHC2pan
+  # Install and test NetMHC2pan
   - sudo apt install tcsh
-  - Rscript -e "netmhc2pan::install_netmhc2pan(netmhc2pan::get_netmhc2pan_url())"
+  - Rscript -e "netmhc2pan::install_netmhc2pan()"
   - echo -e ">sp|L0T550|RIP2_MYCTU_158_180\nAVLWAGVAFLAFLQLTALVLNLL" > example.fasta
   - ~/.local/share/netMHCIIpan-3.2/netMHCIIpan -f example.fasta
   - rm example.fasta
-  # Build and run
+  # Build and run C++ code of epitopeome
   - qmake
   - make
   - ./epitopeome
