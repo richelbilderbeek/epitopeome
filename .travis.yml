@@ -35,10 +35,9 @@ before_script:
   # Install NetMHC2pan
   - sudo apt install tcsh
   - Rscript -e "netmhc2pan::install_netmhc2pan(netmhc2pan::get_netmhc2pan_url())"
-  - |
-    echo -e ">sp|L0T550|RIP2_MYCTU_158_180\nAVLWAGVAFLAFLQLTALVLNLL" | ~/.local/share/tmhmm-2.0c/bin/decodeanhmm.Linux_x86_64 \
-      -f ~/.local/share/tmhmm-2.0c/lib/TMHMM2.0.options \
-      -modelfile ~/.local/share/tmhmm-2.0c/lib/TMHMM2.0.model
+  - echo -e ">sp|L0T550|RIP2_MYCTU_158_180\nAVLWAGVAFLAFLQLTALVLNLL" > example.fasta
+  - ~/.local/share/netMHCIIpan-3.2/netMHCIIpan -f example.fasta
+  - rm example.fasta
   # Build and run
   - qmake
   - make
