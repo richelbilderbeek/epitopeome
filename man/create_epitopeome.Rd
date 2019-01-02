@@ -48,7 +48,7 @@ Create epitopeome indicating strong MHC2 binders
     "extdata", "proteome.fasta", package = "epitopeome"
   )
   epitopeome <- create_epitopeome(fasta_filename)
-  testthat::expect_equal(2, length(epitopeome) == 2)
+  testthat::expect_equal(2, length(epitopeome))
   testthat::expect_equal(">tr|I6WZ58|I6WZ58_MYCTU", epitopeome[1])
   testthat::expect_equal(313, stringr::str_length(epitopeome[2]))
   testthat::expect_equal(39, stringr::str_count(epitopeome[2], "i"))
