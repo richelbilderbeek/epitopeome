@@ -12,7 +12,7 @@ test_that("use", {
   netmhc2pan_filename <- tempfile(fileext = ".csv")
   epitopeome_filename <- tempfile(fileext = ".fasta")
   binding_strength_threshold <- 5.0
-  alleles = "DRB1_0101"
+  alleles <- "DRB1_0101"
 
   epitopeome <- create_epitopeome(
     fasta_filename = fasta_filename,
@@ -24,5 +24,5 @@ test_that("use", {
   )
   expect_equal(2, length(epitopeome))
   expect_equal(epitopeome[1], ">tr|I6WZ58|I6WZ58_MYCTU")
-  expect_equal(epitopeome[2], "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiimmmmmmmmmmmmmmmmmmmmmmmooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMMMMMMIIIIIIIIIIiimmmmMMMMMMMMMMMMMMOOOOOooooooooommmmmmmmmmmmmmmmmmmmiiiii")
+  expect_equal(epitopeome[2], "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiimmmmmmmmmmmmmmmmmmmmmmmooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMMMMMMIIIIIIIIIIiimmmmMMMMMMMMMMMMMMOOOOOooooooooommmmmmmmmmmmmmmmmmmmiiiii") # nolint indeed a long line
 })
