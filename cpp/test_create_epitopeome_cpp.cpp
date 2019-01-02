@@ -22,13 +22,13 @@ BOOST_AUTO_TEST_CASE(epitopeome_must_be_exactly_cpp)
 
   const std::string locatome =
      std::string( 32 -   1 + 1, 'i')
-   + std::string( 55 -  33 + 1, 't')
+   + std::string( 55 -  33 + 1, 'm')
    + std::string(221 -  56 + 1, 'o')
-   + std::string(244 - 222 + 1, 't')
+   + std::string(244 - 222 + 1, 'm')
    + std::string(256 - 245 + 1, 'i')
-   + std::string(274 - 257 + 1, 't')
+   + std::string(274 - 257 + 1, 'm')
    + std::string(288 - 275 + 1, 'o')
-   + std::string(308 - 289 + 1, 't')
+   + std::string(308 - 289 + 1, 'm')
    + std::string(313 - 309 + 1, 'i')
   ;
   std::string expected = locatome;
@@ -44,7 +44,7 @@ BOOST_AUTO_TEST_CASE(epitopeome_must_be_exactly_cpp)
   }
   const std::string expected_raw
   = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
-    "ttttttttttttttttttttttt"
+    "mmmmmmmmmmmmmmmmmmmmmmm"
     "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" //!OCLINT indeed long
   // 2
   // 1         2         3         4         5         6         7         8
@@ -65,8 +65,8 @@ BOOST_AUTO_TEST_CASE(epitopeome_must_be_exactly_cpp)
   //                                                      ***************
   //                                                       ***************
   //                                                        ***************
-    "OOOOOOOOOOOOTTTTTTTTTTTTTTTTTTTTTTTIIIIIIIIIIiittttTTTTTTTTTTTTTTOOOOOooooooooo" //!OCLINT indeed long
-    "ttttttttttttttttttttiiiii"
+    "OOOOOOOOOOOOMMMMMMMMMMMMMMMMMMMMMMMIIIIIIIIIIiimmmmMMMMMMMMMMMMMMOOOOOooooooooo" //!OCLINT indeed long
+    "mmmmmmmmmmmmmmmmmmmmiiiii"
   ;
   assert(expected == expected_raw);
 

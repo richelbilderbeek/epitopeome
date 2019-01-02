@@ -6,12 +6,12 @@
 
 BOOST_AUTO_TEST_CASE(epitopeome_file_must_be_created)
 {
-  const std::string tmh_filename = "tmhmm.txt";
+  const std::string locatome = "tmhmm.txt";
   {
     QFile tmh_file(":/epitopeome/tmhmm.txt");
-    tmh_file.copy(tmh_filename.c_str());
+    tmh_file.copy(locatome.c_str());
   }
-  assert(QFile::exists(tmh_filename.c_str()));
+  assert(QFile::exists(locatome.c_str()));
 
   const std::string netmhc2pan_filename = "netmhc2pan.csv";
   {
@@ -28,7 +28,7 @@ BOOST_AUTO_TEST_CASE(epitopeome_file_must_be_created)
   assert(!QFile::exists(result_filename.c_str()));
 
   create_epitopeome_file_cpp(
-    tmh_filename,
+    locatome,
     netmhc2pan_filename,
     result_filename
   );
@@ -41,8 +41,8 @@ BOOST_AUTO_TEST_CASE(epitopeome_bbbq)
 {
   if (1 == 2)
   {
-    const std::string tmh_filename = "/home/richel/bbbq/tbc_tmhmm.txt";
-    assert(QFile::exists(tmh_filename.c_str()));
+    const std::string locatome = "/home/richel/bbbq/tbc_tmhmm.txt";
+    assert(QFile::exists(locatome.c_str()));
     const std::string netmhc2pan_filename = "/home/richel/bbbq/tbc_netmhc2pan_bindings_strong.csv";
     assert(QFile::exists(netmhc2pan_filename.c_str()));
     const std::string result_filename = "/home/richel/tbc_epitiopeome.fasta";
@@ -53,7 +53,7 @@ BOOST_AUTO_TEST_CASE(epitopeome_bbbq)
     assert(!QFile::exists(result_filename.c_str()));
 
     create_epitopeome_file_cpp(
-      tmh_filename,
+      locatome,
       netmhc2pan_filename,
       result_filename
     );

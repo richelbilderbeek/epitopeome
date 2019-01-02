@@ -7,6 +7,7 @@
 #include <iterator>
 #include <cstdlib>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -16,33 +17,38 @@ std::map<std::string, std::string> create_locatome_cpp(
   std::map<std::string, std::string> m;
 
   std::ifstream file(tmhs_filename.c_str());
+  std::string last_key;
 
   for(string line; getline(file, line); )
   {
-    std::istringstream iss(line);
-    std::vector<std::string> words(
-      (std::istream_iterator<std::string>(iss)),
-      std::istream_iterator<std::string>()
-    );
-    assert(words.size() == 5);
-    const std::string location = words[2];
-    const int from = atoi(words[3].c_str());
-    const int to = atoi(words[4].c_str());
-    const std::string key = words[0];
-    if (m.find(key) == m.end())
-    {
-      m.insert(std::make_pair(key, std::string()));
+    assert(!line.empty());
+    if (line[0] == '>') {
+      //Must lose sequence description,
+      //to match TMHMM and NetMHC2pan dictionary keys:
+      //NetMHC2pan removes it
+      std::istringstream iss(line);
+          std::vector<std::string> words(
+            (std::istream_iterator<std::string>(iss)),
+            std::istream_iterator<std::string>()
+          );
+      assert(words.size() >= 1);
+      last_key = words[0];
+      //Lose starting '>'
+      last_key = last_key.substr(1, last_key.size() - 1);
+      m.insert(std::make_pair(last_key, std::string()));
+      continue;
     }
-    char c = '?';
-    if (location == std::string("TMhelix")) c = 't';
-    if (location == std::string("inside")) c = 'i';
-    if (location == std::string("outside")) c = 'o';
-    assert(c != '?');
-    const int sz = to - from + 1;
-    assert(sz > 0);
-    const std::string locatome_part = std::string(sz, c);
-    assert(m.find(key) != m.end());
-    (*m.find(key)).second += locatome_part;
+    assert(m.find(last_key) != m.end());
+    std::string sequence = line;
+    std::string::iterator i = sequence.begin();
+    const std::string::iterator j = sequence.end();
+    for ( ; i != j; ++i)
+    {
+      *i = std::tolower(*i);
+    }
+
+    assert(m.find(last_key) != m.end());
+    (*m.find(last_key)).second += sequence;
   }
   return m;
 }

@@ -29,17 +29,6 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
-// create_locatome_cpp
-std::map<std::string, std::string> create_locatome_cpp(const std::string& tmhs_filename);
-RcppExport SEXP _epitopeome_create_locatome_cpp(SEXP tmhs_filenameSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const std::string& >::type tmhs_filename(tmhs_filenameSEXP);
-    rcpp_result_gen = Rcpp::wrap(create_locatome_cpp(tmhs_filename));
-    return rcpp_result_gen;
-END_RCPP
-}
 // split_str
 std::vector<std::string> split_str(const std::string& input, const char seperator);
 RcppExport SEXP _epitopeome_split_str(SEXP inputSEXP, SEXP seperatorSEXP) {
@@ -56,7 +45,6 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_epitopeome_create_epitopeome_cpp", (DL_FUNC) &_epitopeome_create_epitopeome_cpp, 2},
     {"_epitopeome_create_epitopeome_file_cpp", (DL_FUNC) &_epitopeome_create_epitopeome_file_cpp, 3},
-    {"_epitopeome_create_locatome_cpp", (DL_FUNC) &_epitopeome_create_locatome_cpp, 1},
     {"_epitopeome_split_str", (DL_FUNC) &_epitopeome_split_str, 2},
     {NULL, NULL, 0}
 };
