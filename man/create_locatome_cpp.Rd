@@ -2,18 +2,23 @@
 % Please edit documentation in R/RcppExports.R
 \name{create_locatome_cpp}
 \alias{create_locatome_cpp}
-\title{Creates a FASTA file with only the TMHs}
+\title{Creates a FASTA file with only the TMHs for a TMHMM file as
+created by the TMHMM web server
+at \url{http://www.cbs.dtu.dk/services/TMHMM/}}
 \usage{
 create_locatome_cpp(tmhs_filename)
 }
 \arguments{
-\item{tmhs_filename}{file that contains the TMHs as created by TMHMM}
+\item{tmhs_filename}{file that contains the TMHs
+as created by the TMHMM web server}
 }
 \value{
 nothing
 }
 \description{
-Creates a FASTA file with only the TMHs
+Creates a FASTA file with only the TMHs for a TMHMM file as
+created by the TMHMM web server
+at \url{http://www.cbs.dtu.dk/services/TMHMM/}
 }
 \author{
 Richel J.C. Bilderbeek
