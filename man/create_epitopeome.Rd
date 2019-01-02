@@ -16,7 +16,7 @@ create_epitopeome(fasta_filename, alleles = "DRB1_0101",
 See \link{get_netmhc2pan_alleles} for a full list}
 
 \item{binding_strength_threshold}{threshold of the MHC2 allele's
-binding strength. A low threshold, e.g. 0.05, selects for the top
+binding strength. A low threshold, e.g. \code{5.0}, selects for the top
 5 percent best binders}
 
 \item{tmhmm_filename}{name of the file to store the
