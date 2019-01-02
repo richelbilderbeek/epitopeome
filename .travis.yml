@@ -46,6 +46,8 @@ before_script:
   - ./epitopeome
   # proselint
   - sudo pip install proselint
+  # Check FASTAs
+  - cat ~/inst/extdata/proteome.fasta
 
 after_success:
   - Rscript -e 'lintr::lint_package()'
