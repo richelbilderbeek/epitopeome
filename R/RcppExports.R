@@ -23,6 +23,18 @@ create_epitopeome_file_cpp <- function(tmhs_filename, netmhc2pan_filename, epito
     invisible(.Call(`_epitopeome_create_epitopeome_file_cpp`, tmhs_filename, netmhc2pan_filename, epitopeome_filename))
 }
 
+#' Creates a FASTA file with only the TMHs for a TMHMM file
+#' as created by a locally installled TMHMM binary
+#' @param tmhs_filename file that contains the TMHs
+#'   as created by a locally installed TMHMM binary
+#' @return a dictionary with sequence names as key,
+#'   and a 'locatome' as values.
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_locatome_cpp <- function(tmhs_filename) {
+    .Call(`_epitopeome_create_locatome_cpp`, tmhs_filename)
+}
+
 #' Split a string
 #' @param input the input string
 #' @param seperator the seperator
