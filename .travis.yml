@@ -46,13 +46,16 @@ before_script:
   - ./epitopeome
   # proselint
   - sudo pip install proselint
-  # Check FASTAs
-  - cat ~/epitopeome/inst/extdata/proteome.fasta
 
 after_success:
+  - cat ~/epitopeome/inst/extdata/proteome.fasta || true
+  - cat ~/inst/extdata/proteome.fasta || true
+  - find . | egrep "fasta"
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'
   - Rscript -e 'goodpractice::gp()'
 
 after_failure:
+  - cat ~/epitopeome/inst/extdata/proteome.fasta || true
+  - cat ~/inst/extdata/proteome.fasta || true
   - find . | egrep "fasta"
