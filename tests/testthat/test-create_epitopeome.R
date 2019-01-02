@@ -22,4 +22,7 @@ test_that("use", {
     netmhc2pan_filename = netmhc2pan_filename,
     epitopeome_filename = epitopeome_filename
   )
+  expect_equal(2, length(epitopeome))
+  expect_equal(epitopeome[1], ">tr|I6WZ58|I6WZ58_MYCTU")
+  expect_equal(epitopeome[2], "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiimmmmmmmmmmmmmmmmmmmmmmmooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMMMMMMIIIIIIIIIIiimmmmMMMMMMMMMMMMMMOOOOOooooooooommmmmmmmmmmmmmmmmmmmiiiii")
 })

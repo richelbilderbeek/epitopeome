@@ -23,6 +23,7 @@ LinkingTo:
     Rcpp
 Imports:
     netmhc2pan,
+    stringr,
     testit,
     tmhmm,
     Rcpp

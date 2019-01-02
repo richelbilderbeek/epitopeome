@@ -1,5 +1,20 @@
 #' Create epitopeome indicating strong MHC2 binders
 #' @inheritParams default_params_doc
+#' @return the epitopeome as text
+#' @examples
+#'   fasta_filename <- system.file(
+#'     "extdata", "proteome.fasta", package = "epitopeome"
+#'   )
+#'   epitopeome <- create_epitopeome(fasta_filename)
+#'   testit::assert(length(epitopeome) == 2)
+#'   testit::assert(epitopeome[1] == ">tr|I6WZ58|I6WZ58_MYCTU")
+#'   testit::assert(stringr::str_length(epitopeome[2]) == 313)
+#'   testit::assert(stringr::str_count(epitopeome[2], "i") == 39)
+#'   testit::assert(stringr::str_count(epitopeome[2], "m") == 47)
+#'   testit::assert(stringr::str_count(epitopeome[2], "o") == 163)
+#'   testit::assert(stringr::str_count(epitopeome[2], "I") == 10)
+#'   testit::assert(stringr::str_count(epitopeome[2], "M") == 37)
+#'   testit::assert(stringr::str_count(epitopeome[2], "O") == 17)
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_epitopeome <- function(
