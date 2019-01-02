@@ -19,6 +19,7 @@ create_epitopeome_cpp <- function(tmhs_filename, netmhc2pan_filename) {
 #'   saved in FASTA format
 #' @return nothing
 #' @author Richel J.C. Bilderbeek
+#' @export
 create_epitopeome_file_cpp <- function(tmhs_filename, netmhc2pan_filename, epitopeome_filename) {
     invisible(.Call(`_epitopeome_create_epitopeome_file_cpp`, tmhs_filename, netmhc2pan_filename, epitopeome_filename))
 }

@@ -2,6 +2,7 @@
 
 export(create_epitopeome)
 export(create_epitopeome_cpp)
+export(create_epitopeome_file_cpp)
 export(create_locatome_cpp)
 importFrom(Rcpp,sourceCpp)
 useDynLib(epitopeome, .registration = TRUE)

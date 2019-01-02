@@ -11,6 +11,7 @@
 //'   saved in FASTA format
 //' @return nothing
 //' @author Richel J.C. Bilderbeek
+//' @export
 // [[Rcpp::export]]
 void create_epitopeome_file_cpp(
   const std::string& tmhs_filename,

@@ -22,9 +22,4 @@ test_that("use", {
     netmhc2pan_filename = netmhc2pan_filename,
     epitopeome_filename = epitopeome_filename
   )
-
-  readLines(tmhmm_filename)
-  readLines(netmhc2pan_filename)
-  skip("WIP")
-  readLines(epitopeome_filename)
 })
