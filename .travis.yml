@@ -57,5 +57,9 @@ after_success:
 
 after_failure:
   - pwd
+  - cat ./epitopeome.Rcheck/00_pkg_src/epitopeome/inst/extdata/proteome.fasta || true
+  - cat ./epitopeome.Rcheck/epitopeome/extdata/proteome.fasta || true
   - cat ./inst/extdata/proteome.fasta || true
   - find . | egrep "fasta"
+
+
