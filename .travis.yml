@@ -56,6 +56,6 @@ after_success:
   - Rscript -e 'goodpractice::gp()'
 
 after_failure:
-  - cat ~/epitopeome/inst/extdata/proteome.fasta || true
-  - cat ~/inst/extdata/proteome.fasta || true
+  - pwd
+  - cat ./inst/extdata/proteome.fasta || true
   - find . | egrep "fasta"
