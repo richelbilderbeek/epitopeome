@@ -5,8 +5,8 @@
 \title{Create epitopeome indicating strong MHC2 binders}
 \usage{
 create_epitopeome(fasta_filename, alleles = "DRB1_0101",
-  binding_strength_threshold = 0.05, tmhmm_filename = tempfile(fileext
-  = "txt"), netmhc2pan_filename = tempfile(fileext = ".csv"),
+  binding_strength_threshold = 5, tmhmm_filename = tempfile(fileext =
+  "txt"), netmhc2pan_filename = tempfile(fileext = ".csv"),
   epitopeome_filename = tempfile(fileext = ".fasta"))
 }
 \arguments{
