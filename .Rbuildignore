@@ -4,6 +4,7 @@
 ^epitopeome\.pro\.user$
 ^epitopeome\.qrc$
 ^\.Rproj\.user$
+^\.lintr$
 ^pics$
 ^doc$
 ^cpp$
