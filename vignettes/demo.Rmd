@@ -1,24 +1,21 @@
-# epitopeome
+---
+title: "Demo"
+author: "Richel J.C. Bilderbeek"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
-Branch|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
----|---|---
-master|[![Build Status](https://travis-ci.org/richelbilderbeek/epitopeome.svg?branch=master)](https://travis-ci.org/richelbilderbeek/epitopeome)|[![codecov.io](https://codecov.io/github/richelbilderbeek/epitopeome/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/epitopeome/branch/master)
-develop|[![Build Status](https://travis-ci.org/richelbilderbeek/epitopeome.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/epitopeome)|[![codecov.io](https://codecov.io/github/richelbilderbeek/epitopeome/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/epitopeome/branch/develop)
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
-Create an 'epitopeome' from one or more protein sequences.
-
-> Please note that TMHMM and NetMHCIIpan are intended for academic users only. 
-> Other users are requested TMHMM and NetMHC2IIpan 
-> Software Package Manager at software@cbs.dtu.dk
-
-`epitopeome` depends on:
-
- * [netmhc2pan](https://github.com/richelbilderbeek/netmhc2pan): 
-   obtain MHC2 epitopes for a proteome
- * [tmhmm](https://github.com/richelbilderbeek/tmhmm):
-   obtain the topology of a transmembrane protein
-
-## Install
 
 The `epitopeome` package depends on the `tmhmm` package, which needs
 to be installed first:
@@ -115,12 +112,12 @@ of each amino acid:
 
 Epitopeum|Location|Binds strongly to MHC2 allele 
 ---|---|---
-'o'|Outside|No
-'i'|Inside|No
-'m'|Membrance|No
-'O'|Outside|Yes
-'I'|Inside|Yes
-'M'|Membrance|Yes
+`o`|Outside|No
+`i`|Inside|No
+`m`|Membrance|No
+`O`|Outside|Yes
+`I`|Inside|Yes
+`M`|Membrance|Yes
 
 Here is how it looks like:
 
@@ -133,30 +130,4 @@ cat(epitopeome, sep = "\n")
 oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooommmmmmmmmmmmmmmmmmmmmmmiiiiiiiIIIIIMMMMMMMMMMMMMMMMMMMMMMMOOOOoooooooooommmmmmmmmmmmmmmmmmmmMMMIIIIIIIIIIIIIIIIiiiimmmmmmmmmmmmmmmmmmmmmmmooooooooooooooooooommmmmmmmmmmmmmmMMMMMMMMIIIIIIIIIIIIiiiiiiiIIIIIIIIIIIIIIIIIIIIIiiiiiiiiiiiiiiiiiiiiiiiiiiiimmmmmmmmmmmmmmmmmmmmmmmooooooooommmmmmmMMMMMMMMMMMMMMMMIIIIIIIIIIIIIIIIIIIIIiiIIIIIIIIIIIIIIIIIIIIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 ```
 
-## Dependencies
-
-Package|Build status
----|---
-`netmhc2pan`|[![Build Status](https://travis-ci.org/richelbilderbeek/netmhc2pan.svg?branch=master)](https://travis-ci.org/richelbilderbeek/netmhc2pan)
-`tmhmm`|[![Build Status](https://travis-ci.org/richelbilderbeek/tmhmm.svg?branch=master)](https://travis-ci.org/richelbilderbeek/tmhmm)
-
-## FAQ
-
-### Under which operating systems does `epitopeome` work?
-
-`epitopeome` can only work on the set of operating systems 
-that both TMHMM and NetMHCIIpan work on. 
-Therefore, `epitopeome` works under Linux only. 
-
-Operating system|Supported by TMHMM|NetMHCIIpan|Supported by `epitopeome`
----|---|---
-AIX|Y|N|N
-IRIX32|Y|N|N
-IRIX64|Y|N|N
-Darwin|N|Y|N
-Linux|Y|Y|Y
-MacOS|N|N|N
-OSF1|Y|N|N
-SunOS|Y|N|N
-Windows|N|N|N
 
