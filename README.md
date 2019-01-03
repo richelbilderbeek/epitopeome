@@ -11,6 +11,8 @@ Create an 'epitopeome' from one or more protein sequences.
 > Other users are requested TMHMM and NetMHC2IIpan 
 > Software Package Manager at software@cbs.dtu.dk
 
+ * [YouTube video](https://youtu.be/AqT2JOjxnCU) or [download video](http://richelbilderbeek.nl/epitopeome.ogv)
+
 `epitopeome` depends on:
 
  * [netmhc2pan](https://github.com/richelbilderbeek/netmhc2pan): 
