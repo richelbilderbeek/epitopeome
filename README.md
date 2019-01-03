@@ -149,7 +149,7 @@ that both TMHMM and NetMHCIIpan work on.
 Therefore, `epitopeome` works under Linux only. 
 
 Operating system|Supported by TMHMM|NetMHCIIpan|Supported by `epitopeome`
----|---|---
+---|---|---|---
 AIX|Y|N|N
 IRIX32|Y|N|N
 IRIX64|Y|N|N
