@@ -23,12 +23,12 @@ LinkingTo:
     Rcpp
 Imports:
     netmhc2pan,
-    stringr,
     testit,
     tmhmm,
     Rcpp
 Suggests: 
     devtools,
+    stringr,
     testthat,
     knitr,
     rmarkdown
