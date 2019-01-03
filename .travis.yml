@@ -5,6 +5,9 @@ sudo: false
 cache: packages
 dist: trusty
 
+r_packages:
+  - devtools
+
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr

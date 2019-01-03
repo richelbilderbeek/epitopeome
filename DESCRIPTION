@@ -28,6 +28,7 @@ Imports:
     tmhmm,
     Rcpp
 Suggests: 
+    devtools,
     testthat,
     knitr,
     rmarkdown
