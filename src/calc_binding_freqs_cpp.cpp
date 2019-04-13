@@ -2,7 +2,23 @@
 
 #include <cassert>
 #include <numeric>
+#include <iterator>
+#include <iostream>
+#include <sstream>
 using namespace std;
+
+void print(const std::vector<int>& v, std::ostream& os = std::cout)
+{
+  if (v.empty()) return;
+  const int n = v.size();
+  stringstream s;
+  for (int i = 0; i != n - 1; ++i)
+  {
+    s << v[i] << ", ";
+  }
+  s << v[n - 1];
+  os << s.str() << '\n';
+}
 
 bool is_bound(const char c) noexcept
 {
@@ -22,23 +38,27 @@ bool is_tmh(const char c) noexcept
 /// immmo -> -4, -2, 0, 2, 4
 ///@param epitopeope one epitopeome sequence
 ///@return distances
-std::vector<int> calc_distances(const std::string& s)
+std::vector<int> calc_distances(
+  const std::string& s,
+  const bool verbose
+)
 {
   if (s.empty()) return {};
   const int n = static_cast<int>(s.size());
   assert(n > 0);
 
   //Half-distances
-  const int indermined{n + 2}; //+2, just to be sure, could maybe also be +1 or +0
+  const int indermined{n + 3}; //+2, just to be sure, could maybe also be +1 or +0
   std::vector<int> v(n, indermined);
 
-  for (int i = 0; i != n; ++i)
+  for (int i = 0; i < n; ++i)
   {
     //Find first TMH,
     //must be a TMH ...
     if (!is_tmh(s[i])) continue;
     //and before it must be a non-TMH
     if (i > 0 && is_tmh(s[i - 1])) continue;
+    assert(is_tmh(s[i]));
 
     for (int j = i; j < n; ++j)
     {
@@ -48,11 +68,26 @@ std::vector<int> calc_distances(const std::string& s)
       //and after it must be a non-TMH
       if (j < n - 1 && is_tmh(s[j + 1])) continue;
 
+      assert(is_tmh(s[j]));
+
       const int delta = j - i;
       const int half_dist = delta;
       v[i] = -half_dist;
       v[j] =  half_dist;
+      if (verbose)
+      {
+        std::cout << "Hit (i = " << i << ", j = " << j << "):\n";
+        print(v);
+      }
+      ++i;
+      j = i + 1;
+      break;
     }
+  }
+  if (verbose)
+  {
+    std::cout << "Midpoints:\n";
+    print(v);
   }
   //Go forward, set shorter distance
   //  *  * -4  *  *  *  4  *  *
@@ -63,14 +98,26 @@ std::vector<int> calc_distances(const std::string& s)
     const int here = std::abs(v[i]);
     if (here > left) v[i] = v[i - 1] + 2;
   }
+  if (verbose)
+  {
+    std::cout << "Forward:\n";
+    print(v);
+  }
   //Go backward, set shorter distance
-  //  *  * -2 -2  0  2  4  6  8
-  // -6 -4 -2 -2  0  2  4  6  8
+  //  *  * -4 -2  0  2  4  6  8
+  // -8 -6 -4 -2  0  2  4  6  8
   for (int i = n - 2; i >= 0; --i)
   {
+    assert(i >= 0);
+    assert(i + 1 < static_cast<int>(v.size()));
     const int right = std::abs(v[i + 1]);
     const int here = std::abs(v[i]);
     if (here > right) v[i] = v[i + 1] - 2;
+  }
+  if (verbose)
+  {
+    std::cout << "Final:\n";
+    print(v);
   }
   return v;
 }

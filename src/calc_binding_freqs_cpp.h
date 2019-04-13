@@ -18,6 +18,9 @@ std::map<double, double> calc_binding_freqs_cpp(
   const std::vector<std::string>& epitopeome
 );
 
-std::vector<int> calc_distances(const std::string& epitopeope);
+std::vector<int> calc_distances(
+  const std::string& epitopeope,
+  const bool verbose = false
+);
 
 #endif // CALC_BINDING_FREQS_CPP_H
