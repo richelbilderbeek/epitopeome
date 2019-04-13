@@ -1,7 +1,7 @@
 #include "calc_binding_freqs_cpp.h"
 
 #include <cassert>
-
+#include <numeric>
 using namespace std;
 
 bool is_bound(const char c) noexcept
@@ -80,6 +80,17 @@ map<double, double> calc_binding_freqs_cpp(
 )
 {
   if (epitopeome.empty()) return {};
+  {
+    const int n_aas{
+      accumulate(
+        begin(epitopeome),
+        end(epitopeome),
+        0,
+        [](const int i, const string& s) { return i + static_cast<int>(s.size()); }
+      )
+    };
+    if (!n_aas) return {};
+  }
   //Number of counts (value) per half-distance(key)
   map<int, int> dist_cnt;
   for (int i = -100; i != 101; ++i) // Too big, just to have all values
@@ -116,6 +127,10 @@ map<double, double> calc_binding_freqs_cpp(
         }
       );
     }
+  }
+  if (m.empty())
+  {
+    m.insert( { 0, 0.0 } );
   }
   return m;
 }
