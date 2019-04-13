@@ -106,6 +106,7 @@ BOOST_AUTO_TEST_CASE(calc_distances_three_tmhs_m_right)
   BOOST_CHECK_EQUAL(v[2],  0);
 }
 
+//Zero x
 BOOST_AUTO_TEST_CASE(calc_distances_four_mmmm)
 {
   const auto v = calc_distances("mmmm");
@@ -116,6 +117,7 @@ BOOST_AUTO_TEST_CASE(calc_distances_four_mmmm)
   BOOST_CHECK_EQUAL(v[3],  3);
 }
 
+//One x
 BOOST_AUTO_TEST_CASE(calc_distances_four_xmmm)
 {
   const auto v = calc_distances("xmmm");
@@ -156,7 +158,28 @@ BOOST_AUTO_TEST_CASE(calc_distances_four_mmmx)
   BOOST_CHECK_EQUAL(v[3],  4);
 }
 
-BOOST_AUTO_TEST_CASE(calc_distances_four_mix_tmhs)
+//Two x
+BOOST_AUTO_TEST_CASE(calc_distances_four_xxmm)
+{
+  const auto v = calc_distances("xxmm");
+  BOOST_CHECK_EQUAL(v.size(), 4);
+  BOOST_CHECK_EQUAL(v[0], -5);
+  BOOST_CHECK_EQUAL(v[1], -3);
+  BOOST_CHECK_EQUAL(v[2], -1);
+  BOOST_CHECK_EQUAL(v[3],  1);
+}
+
+BOOST_AUTO_TEST_CASE(calc_distances_four_xmxm)
+{
+  const auto v = calc_distances("xmxm");
+  BOOST_CHECK_EQUAL(v.size(), 4);
+  BOOST_CHECK_EQUAL(v[0], -2);
+  BOOST_CHECK_EQUAL(v[1],  0);
+  BOOST_CHECK_EQUAL(v[2],  2);
+  BOOST_CHECK_EQUAL(v[3],  0);
+}
+
+BOOST_AUTO_TEST_CASE(calc_distances_four_xmmx)
 {
   const auto v = calc_distances("xmmx");
   BOOST_CHECK_EQUAL(v.size(), 4);
@@ -166,6 +189,41 @@ BOOST_AUTO_TEST_CASE(calc_distances_four_mix_tmhs)
   BOOST_CHECK_EQUAL(v[3],  3);
 }
 
+BOOST_AUTO_TEST_CASE(calc_distances_four_mxxm)
+{
+  const auto v = calc_distances("mxxm");
+  BOOST_CHECK_EQUAL(v.size(), 4);
+  BOOST_CHECK_EQUAL(v[0],  0);
+  BOOST_CHECK_EQUAL(v[1],  2);
+  BOOST_CHECK_EQUAL(v[2], -2);
+  BOOST_CHECK_EQUAL(v[3],  0);
+}
+
+BOOST_AUTO_TEST_CASE(calc_distances_four_mxmx)
+{
+  const auto v = calc_distances("mxmx");
+  BOOST_CHECK_EQUAL(v.size(), 4);
+  BOOST_CHECK_EQUAL(v[0],  0);
+  BOOST_CHECK_EQUAL(v[1],  2);
+  BOOST_CHECK_EQUAL(v[2],  0);
+  BOOST_CHECK_EQUAL(v[3],  2);
+}
+
+
+BOOST_AUTO_TEST_CASE(calc_distances_four_mmxx)
+{
+  const auto v = calc_distances("mmxx");
+  BOOST_CHECK_EQUAL(v.size(), 4);
+  BOOST_CHECK_EQUAL(v[0], -1);
+  BOOST_CHECK_EQUAL(v[1],  1);
+  BOOST_CHECK_EQUAL(v[2],  3);
+  BOOST_CHECK_EQUAL(v[3],  5);
+}
+//Three x
+
+//Four x
+
+//
 BOOST_AUTO_TEST_CASE(calc_distances_five_tmhs)
 {
   const auto v = calc_distances("mmmmm");
