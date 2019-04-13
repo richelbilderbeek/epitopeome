@@ -112,7 +112,8 @@ std::vector<int> calc_distances(
     assert(i + 1 < static_cast<int>(v.size()));
     const int right = std::abs(v[i + 1]);
     const int here = std::abs(v[i]);
-    if (here > right) v[i] = v[i + 1] - 2;
+    //if (here > right) v[i] = v[i + 1] - 2;
+    if (abs(here - right) > 2) v[i] = v[i + 1] - 2;
   }
   if (verbose)
   {
