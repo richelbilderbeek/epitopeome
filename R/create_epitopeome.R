@@ -2,19 +2,21 @@
 #' @inheritParams default_params_doc
 #' @return the epitopeome as text
 #' @examples
-#'   fasta_filename <- system.file(
-#'     "extdata", "proteome.fasta", package = "epitopeome"
-#'   )
-#'   epitopeome <- create_epitopeome(fasta_filename)
-#'   testthat::expect_equal(2, length(epitopeome))
-#'   testthat::expect_equal(">tr|I6WZ58|I6WZ58_MYCTU", epitopeome[1])
-#'   testthat::expect_equal(313, stringr::str_length(epitopeome[2]))
-#'   testthat::expect_equal(39, stringr::str_count(epitopeome[2], "i"))
-#'   testthat::expect_equal(47, stringr::str_count(epitopeome[2], "m"))
-#'   testthat::expect_equal(163, stringr::str_count(epitopeome[2], "o"))
-#'   testthat::expect_equal(10, stringr::str_count(epitopeome[2], "I"))
-#'   testthat::expect_equal(37, stringr::str_count(epitopeome[2], "M"))
-#'   testthat::expect_equal(17, stringr::str_count(epitopeome[2], "O"))
+#' library(testthat)
+#'
+#' fasta_filename <- system.file(
+#'   "extdata", "proteome.fasta", package = "epitopeome"
+#' )
+#' epitopeome <- create_epitopeome(fasta_filename)
+#' expect_equal(2, length(epitopeome))
+#' expect_equal(">tr|I6WZ58|I6WZ58_MYCTU", epitopeome[1])
+#' expect_equal(313, stringr::str_length(epitopeome[2]))
+#' expect_equal(39, stringr::str_count(epitopeome[2], "i"))
+#' expect_equal(47, stringr::str_count(epitopeome[2], "m"))
+#' expect_equal(163, stringr::str_count(epitopeome[2], "o"))
+#' expect_equal(10, stringr::str_count(epitopeome[2], "I"))
+#' expect_equal(37, stringr::str_count(epitopeome[2], "M"))
+#' expect_equal(17, stringr::str_count(epitopeome[2], "O"))
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_epitopeome <- function(

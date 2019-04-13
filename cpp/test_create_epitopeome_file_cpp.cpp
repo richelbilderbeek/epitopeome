@@ -39,10 +39,10 @@ BOOST_AUTO_TEST_CASE(epitopeome_file_must_be_created)
 
 BOOST_AUTO_TEST_CASE(r_crash)
 {
-  const std::string locatome = "/home/richel/tmhmm.txt";
+  const std::string locatome = "tmhmm.txt";
   assert(QFile::exists(locatome.c_str()));
 
-  const std::string netmhc2pan_filename = "/home/richel/netmhc2pan.csv";
+  const std::string netmhc2pan_filename = "netmhc2pan.csv";
   assert(QFile::exists(netmhc2pan_filename.c_str()));
 
   const std::string result_filename = "tmp_epitiopeome.fasta";
