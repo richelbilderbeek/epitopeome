@@ -45,7 +45,7 @@ before_script:
   - rm example.fasta
   # Build and run C++ code of epitopeome
   - qmake
-  - make
+  - make --silent
   - ./epitopeome
   # proselint
   - sudo pip install proselint
