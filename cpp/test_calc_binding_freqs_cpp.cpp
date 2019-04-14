@@ -219,7 +219,17 @@ BOOST_AUTO_TEST_CASE(calc_distances_four_mmxx)
   BOOST_CHECK_EQUAL(v[2],  3);
   BOOST_CHECK_EQUAL(v[3],  5);
 }
+
 //Three x
+BOOST_AUTO_TEST_CASE(calc_distances_four_xxxm)
+{
+  const auto v = calc_distances("xxxm");
+  BOOST_CHECK_EQUAL(v.size(), 4);
+  BOOST_CHECK_EQUAL(v[0], -6);
+  BOOST_CHECK_EQUAL(v[1], -4);
+  BOOST_CHECK_EQUAL(v[2], -2);
+  BOOST_CHECK_EQUAL(v[3],  0);
+}
 
 //Four x
 
@@ -268,7 +278,12 @@ BOOST_AUTO_TEST_CASE(one_empty_sequence_becomes_empty_map)
 
 BOOST_AUTO_TEST_CASE(sequence_one_non_bound)
 {
-  const auto m = calc_binding_freqs_cpp( { "m" } );
+  const auto m = calc_binding_freqs_cpp(
+    {
+      ">single_nucleotide_non_binding_tmh",
+      "m"
+    }
+  );
   BOOST_CHECK_EQUAL(m.size(), 1);
   BOOST_CHECK_EQUAL(m.begin()->first, 0);
   BOOST_CHECK_EQUAL(m.begin()->second, 0.0);
@@ -277,9 +292,30 @@ BOOST_AUTO_TEST_CASE(sequence_one_non_bound)
 
 BOOST_AUTO_TEST_CASE(sequence_one_bound)
 {
-  const auto m = calc_binding_freqs_cpp( { "M" } );
+  const auto m = calc_binding_freqs_cpp(
+    {
+      ">single_nucleotide_binding_tmh",
+      "M"
+    }
+  );
   BOOST_CHECK_EQUAL(m.size(), 1);
   BOOST_CHECK_EQUAL(m.begin()->first, 0);
   BOOST_CHECK_EQUAL(m.begin()->second, 1.0);
   BOOST_CHECK_EQUAL((*m.find(0)).second, 1.0);
+}
+
+BOOST_AUTO_TEST_CASE(sequence_two)
+{
+  const auto m = calc_binding_freqs_cpp(
+    {
+      ">single_nucleotide_non_binding_tmh",
+      "m",
+      ">single_nucleotide_binding_tmh",
+      "M"
+    }
+  );
+  BOOST_CHECK_EQUAL(m.size(), 1);
+  BOOST_CHECK_EQUAL(m.begin()->first, 0);
+  BOOST_CHECK_EQUAL(m.begin()->second, 0.5);
+  BOOST_CHECK_EQUAL((*m.find(0)).second, 0.5);
 }

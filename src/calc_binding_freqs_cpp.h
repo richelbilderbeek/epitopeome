@@ -6,7 +6,7 @@
 #include <vector>
 
 //' Calculates the binding frequencies
-//' @param epitopeome an epitopeome
+//' @param epitopeome an epitopeome, without protein names
 //' @return a map,
 //'   with the distance to the center of a TMH as its key
 //'   (either x.0 or x.5),
@@ -15,12 +15,11 @@
 //' @export
 // [[Rcpp::export]]
 std::map<double, double> calc_binding_freqs_cpp(
-  const std::vector<std::string>& epitopeome
+  std::vector<std::string> epitopeome
 );
 
 std::vector<int> calc_distances(
-  const std::string& epitopeope,
-  const bool verbose = false
+  const std::string& epitopeope
 );
 
 #endif // CALC_BINDING_FREQS_CPP_H

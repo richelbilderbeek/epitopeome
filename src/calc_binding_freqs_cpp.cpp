@@ -1,24 +1,12 @@
 #include "calc_binding_freqs_cpp.h"
 
+#include <algorithm>
 #include <cassert>
 #include <numeric>
 #include <iterator>
 #include <iostream>
 #include <sstream>
 using namespace std;
-
-void print(const std::vector<int>& v, std::ostream& os = std::cout)
-{
-  if (v.empty()) return;
-  const int n = v.size();
-  stringstream s;
-  for (int i = 0; i != n - 1; ++i)
-  {
-    s << v[i] << ", ";
-  }
-  s << v[n - 1];
-  os << s.str() << '\n';
-}
 
 bool is_bound(const char c) noexcept
 {
@@ -39,8 +27,7 @@ bool is_tmh(const char c) noexcept
 ///@param epitopeope one epitopeome sequence
 ///@return distances
 std::vector<int> calc_distances(
-  const std::string& s,
-  const bool verbose
+  const std::string& s
 )
 {
   if (s.empty()) return {};
@@ -74,20 +61,10 @@ std::vector<int> calc_distances(
       const int half_dist = delta;
       v[i] = -half_dist;
       v[j] =  half_dist;
-      if (verbose)
-      {
-        std::cout << "Hit (i = " << i << ", j = " << j << "):\n";
-        print(v);
-      }
       ++i;
       j = i + 1;
       break;
     }
-  }
-  if (verbose)
-  {
-    std::cout << "Midpoints:\n";
-    print(v);
   }
   //Go forward, set shorter distance
   //  *  * -4  *  *  *  4  *  *
@@ -97,11 +74,6 @@ std::vector<int> calc_distances(
     const int left = std::abs(v[i - 1]);
     const int here = std::abs(v[i]);
     if (here > left) v[i] = v[i - 1] + 2;
-  }
-  if (verbose)
-  {
-    std::cout << "Forward:\n";
-    print(v);
   }
   //Go backward, set shorter distance
   //  *  * -4 -2  0  2  4  6  8
@@ -115,30 +87,26 @@ std::vector<int> calc_distances(
     //if (here > right) v[i] = v[i + 1] - 2;
     if (abs(here - right) > 2) v[i] = v[i + 1] - 2;
   }
-  if (verbose)
-  {
-    std::cout << "Final:\n";
-    print(v);
-  }
   return v;
 }
 
 map<double, double> calc_binding_freqs_cpp(
-  const vector<string>& epitopeome
+  vector<string> epitopeome
 )
 {
   if (epitopeome.empty()) return {};
-  {
-    const int n_aas{
-      accumulate(
-        begin(epitopeome),
-        end(epitopeome),
-        0,
-        [](const int i, const string& s) { return i + static_cast<int>(s.size()); }
-      )
-    };
-    if (!n_aas) return {};
-  }
+
+  //Remove empty strings
+  const auto new_end = std::remove_if(
+    begin(epitopeome), end(epitopeome),
+    [](const string& s)
+    {
+      return s.empty() || s[0] == '>';
+    }
+  );
+  epitopeome.erase(new_end, end(epitopeome));
+  if (epitopeome.empty()) return {};
+
   //Number of counts (value) per half-distance(key)
   map<int, int> dist_cnt;
   for (int i = -100; i != 101; ++i) // Too big, just to have all values
@@ -148,6 +116,8 @@ map<double, double> calc_binding_freqs_cpp(
 
   for (const std::string& s: epitopeome)
   {
+    if (s.empty()) continue;
+    if (s[0] == '>') continue;
     const std::vector<int> distances = calc_distances(s);
     assert(s.size() == distances.size());
     const int n = static_cast<int>(s.size());

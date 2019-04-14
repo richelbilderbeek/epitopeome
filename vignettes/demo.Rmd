@@ -21,13 +21,13 @@ The `epitopeome` package depends on the `tmhmm` package, which needs
 to be installed first:
 
 ```{r}
-devtools::install_github("richelbilderbeek/tmhmm")
+#devtools::install_github("richelbilderbeek/tmhmm")
 ```
 
 The `tmhmm` package relies on TMHMM that needs to be installed:
 
 ```{r}
-tmhmm::install_tmhmm("http://www.cbs.dtu.dk/download/D3198788-0F1D-11E9-883C-84B3B9CD16B5/")
+#tmhmm::install_tmhmm("http://www.cbs.dtu.dk/download/D3198788-0F1D-11E9-883C-84B3B9CD16B5/")
 ```
 
 The URL can be obtained by requesting a download link at 
@@ -39,20 +39,20 @@ The installation of NetMHC2pan is checked, with the goal of giving
 a helpful error message:
 
 ```{r}
-tmhmm::check_tmhmm_installation()
+#tmhmm::check_tmhmm_installation()
 ```
 
 Additionall, The `epitopeome` package depends on the `netmhc2pan` package, which needs
 to be installed as well:
 
 ```{r}
-devtools::install_github("richelbilderbeek/netmhc2pan")
+#devtools::install_github("richelbilderbeek/netmhc2pan")
 ```
 
 The `netmhc2pan` package relies on NetMHCIIpan that needs to be installed:
 
 ```{r}
-netmhc2pan::install_netmhc2pan("http://www.cbs.dtu.dk/download/33A6B0AC-0F2E-11E9-B4D1-8ABCB9CD16B5/")
+#netmhc2pan::install_netmhc2pan("http://www.cbs.dtu.dk/download/33A6B0AC-0F2E-11E9-B4D1-8ABCB9CD16B5/")
 ```
 
 The URL can be obtained by requesting a download link at
@@ -64,13 +64,13 @@ The installation of NetMHC2pan is checked, with the goal of giving
 a helpful error message:
 
 ```{r}
-netmhc2pan::check_netmhc2pan_installation()
+#netmhc2pan::check_netmhc2pan_installation()
 ```
 
 Installing the `epitopeome` package:
 
 ```{r}
-devtools::install_github("richelbilderbeek/epitopeome")
+#devtools::install_github("richelbilderbeek/epitopeome")
 ```
 
 ## Usage

@@ -5,6 +5,17 @@
 
 using namespace Rcpp;
 
+// calc_binding_freqs_cpp
+std::map<double, double> calc_binding_freqs_cpp(std::vector<std::string> epitopeome);
+RcppExport SEXP _epitopeome_calc_binding_freqs_cpp(SEXP epitopeomeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type epitopeome(epitopeomeSEXP);
+    rcpp_result_gen = Rcpp::wrap(calc_binding_freqs_cpp(epitopeome));
+    return rcpp_result_gen;
+END_RCPP
+}
 // create_epitopeome_cpp
 std::map<std::string, std::string> create_epitopeome_cpp(const std::string& tmhs_filename, const std::string& netmhc2pan_filename);
 RcppExport SEXP _epitopeome_create_epitopeome_cpp(SEXP tmhs_filenameSEXP, SEXP netmhc2pan_filenameSEXP) {
@@ -54,6 +65,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_epitopeome_calc_binding_freqs_cpp", (DL_FUNC) &_epitopeome_calc_binding_freqs_cpp, 1},
     {"_epitopeome_create_epitopeome_cpp", (DL_FUNC) &_epitopeome_create_epitopeome_cpp, 2},
     {"_epitopeome_create_epitopeome_file_cpp", (DL_FUNC) &_epitopeome_create_epitopeome_file_cpp, 3},
     {"_epitopeome_create_locatome_cpp", (DL_FUNC) &_epitopeome_create_locatome_cpp, 1},
