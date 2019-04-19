@@ -192,13 +192,22 @@ map<double, double> calc_binding_freqs_cpp(
     begin(m), end(m),
     [](const std::pair<double, double>& p) { return p.second > 0.0; }
   );
+  if (iter_begin == end(m))
+  {
+    //There are no useful values
+    return { { 0, 0.0} };
+  }
   //Last useful value
   const auto iter_before_end = std::find_if(
     m.rbegin(), m.rend(),
     [](const std::pair<double, double>& p) { return p.second > 0.0; }
   );
+
   //const double first_useful_distance{iter_begin->first};
+  assert(iter_begin != end(m));
   const double first_useful_count{iter_begin->second};
+
+  assert(iter_before_end != m.rend());
   const double last_useful_distance{iter_before_end->first};
   const double last_useful_count{iter_before_end->second};
   assert(first_useful_count > 0.0);
@@ -211,6 +220,7 @@ map<double, double> calc_binding_freqs_cpp(
   //Map that can holds all useful values
   //Key: distance, value: fraction of bounds AAs per all AAs
   map<double, double> n;
+  assert(iter_begin != iter_to_end);
   copy(iter_begin, iter_to_end, inserter(n, end(n)));
 
   if (n.empty())

@@ -330,9 +330,11 @@ BOOST_AUTO_TEST_CASE(sequence_one_before_one_after)
       "iMO"
     }
   );
-  BOOST_CHECK_EQUAL(m.size(), 3);
+  BOOST_CHECK_EQUAL(m.size(), 5);
   BOOST_CHECK_EQUAL((*m.find(-1.0)).second, 0.5);
+  BOOST_CHECK_EQUAL((*m.find( 0.5)).second, 0.0);
   BOOST_CHECK_EQUAL((*m.find( 0.0)).second, 0.5);
+  BOOST_CHECK_EQUAL((*m.find( 0.5)).second, 0.0);
   BOOST_CHECK_EQUAL((*m.find( 1.0)).second, 0.5);
 }
 
