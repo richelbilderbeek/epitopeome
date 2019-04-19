@@ -319,3 +319,35 @@ BOOST_AUTO_TEST_CASE(sequence_two)
   BOOST_CHECK_EQUAL(m.begin()->second, 0.5);
   BOOST_CHECK_EQUAL((*m.find(0)).second, 0.5);
 }
+
+BOOST_AUTO_TEST_CASE(sequence_one_before_one_after)
+{
+  const auto m = calc_binding_freqs_cpp(
+    {
+      ">one_before",
+      "Imo",
+      ">one_after",
+      "iMO"
+    }
+  );
+  BOOST_CHECK_EQUAL(m.size(), 3);
+  BOOST_CHECK_EQUAL((*m.find(-1.0)).second, 0.5);
+  BOOST_CHECK_EQUAL((*m.find( 0.0)).second, 0.5);
+  BOOST_CHECK_EQUAL((*m.find( 1.0)).second, 0.5);
+}
+
+BOOST_AUTO_TEST_CASE(sequence_NARS_MYCTU)
+{
+  const auto m = calc_binding_freqs_cpp(
+    {
+      ">sp|O53857|NARS_MYCTU",
+      "iiiiiiiiiiiiIIIIIIIIIIIIIIIIIIIiiIIIIIIMMMMMMMMMMMMMMmmmmmmmmmoooommmmmmmmmmmmmMMMMMMMMMMIIIIIIIIIIIIIIIIIIIImmmmmmmMMMMMMMMMMMOOOMMMMMMmmmmmmmmmmmmiiiiiimmmmmmmmmmmmmmmmmmmmooooooooommMMMMMMMMMMMMMMMMIIIiiiIIIIIIIIIIIIIIIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiIIIIIIIIIIIIIIIIIIIiiiiii"
+    }
+  );
+  // Frequencies cannot exceed 1.0
+  BOOST_CHECK_EQUAL(
+    count_if(begin(m), end(m), [](const std::pair<double, double>& p) { return p.second > 1.01; }),
+    0
+  );
+}
+

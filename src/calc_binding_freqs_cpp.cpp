@@ -108,10 +108,17 @@ map<double, double> calc_binding_freqs_cpp(
   if (epitopeome.empty()) return {};
 
   //Number of counts (value) per half-distance(key)
-  map<int, int> dist_cnt;
-  for (int i = -100; i != 101; ++i) // Too big, just to have all values
+  //for all (bound and non-bound) peptides
+  map<int, int> dist_cnt_all;
+  //Number of counts (value) per half-distance(key)
+  //for bound peptides
+  map<int, int> dist_cnt_bound;
+  const int min_dist{-500};
+  const int max_dist{abs(min_dist)};
+  for (int i = min_dist; i != max_dist + 1; ++i) // Too big, just to have all values
   {
-    dist_cnt.insert( { i, 0 } );
+    dist_cnt_all.insert( { i, 0 } );
+    dist_cnt_bound.insert( { i, 0 } );
   }
 
   for (const std::string& s: epitopeome)
@@ -123,32 +130,92 @@ map<double, double> calc_binding_freqs_cpp(
     const int n = static_cast<int>(s.size());
     for (int i = 0; i != n; ++i)
     {
+      ++dist_cnt_all[ distances[i] ];
       if (is_bound(s[i]))
       {
-        assert(distances[i] > -100);
-        assert(distances[i] <= 100);
-        ++dist_cnt[ distances[i] ];
+        assert(distances[i] >  min_dist);
+        assert(distances[i] <= max_dist);
+        ++dist_cnt_bound[ distances[i] ];
       }
     }
   }
 
+  //Map that can hold all values
+  //Key: distance, value: fraction of bounds AAs per all AAs
   map<double, double> m;
-  for (const auto& p: dist_cnt)
+  for (const auto& p: dist_cnt_all)
   {
-    if (p.second) //Only use counts of non-zero
+    //Number of half-distances
+    const int n_hds{p.first};
+
+
+    //Distance
+    const double d{static_cast<double>(n_hds / 2.0)};
+
+
+    const auto iter_n_bound{
+      dist_cnt_bound.find(n_hds)
+    };
+    //If there is no bound AA at that half-distance, add it to m
+    if (iter_n_bound == end(dist_cnt_bound))
     {
-      assert(epitopeome.size() != 0);
-      m.insert(
-        {
-          static_cast<double>(p.first / 2.0),
-          static_cast<double>(p.second) / static_cast<double>(epitopeome.size())
-        }
-      );
+      m.insert( { d, 0.0 } );
+      continue;
     }
+
+    //Total number of AAs at that half-distance
+    const int n_hits{p.second};
+
+    //Total number of bound AAs at that half-distance
+    const int n_bound{iter_n_bound->second};
+
+    //If there are no hits, we assume there are zero bound there as well :-)
+    if (n_hits == 0)
+    {
+      m.insert( { d, 0.0 } );
+      continue;
+    }
+
+    //Fraction of AAs bound
+    const double f_bound{
+      static_cast<double>(n_bound) / static_cast<double>(n_hits)
+    };
+    assert(f_bound >= 0.0);
+    assert(f_bound <= 1.0);
+
+    m.insert( { d, f_bound } );
   }
-  if (m.empty())
+  //Remove the empty tails of m, by copying it to n
+  //Map that hold all relevant values
+  //Key: distance, value: fraction of bounds AAs per all AAs
+  const auto iter_begin = std::find_if(
+    begin(m), end(m),
+    [](const std::pair<double, double>& p) { return p.second > 0.0; }
+  );
+  //Last useful value
+  const auto iter_before_end = std::find_if(
+    m.rbegin(), m.rend(),
+    [](const std::pair<double, double>& p) { return p.second > 0.0; }
+  );
+  //const double first_useful_distance{iter_begin->first};
+  const double first_useful_count{iter_begin->second};
+  const double last_useful_distance{iter_before_end->first};
+  const double last_useful_count{iter_before_end->second};
+  assert(first_useful_count > 0.0);
+  assert(last_useful_count > 0.0);
+  auto iter_to_end = m.find(last_useful_distance);
+  assert(iter_to_end->second > 0.0);
+  ++iter_to_end;
+  assert(iter_to_end->second == 0.0);
+
+  //Map that can holds all useful values
+  //Key: distance, value: fraction of bounds AAs per all AAs
+  map<double, double> n;
+  copy(iter_begin, iter_to_end, inserter(n, end(n)));
+
+  if (n.empty())
   {
-    m.insert( { 0, 0.0 } );
+    n.insert( { 0, 0.0 } );
   }
-  return m;
+  return n;
 }
