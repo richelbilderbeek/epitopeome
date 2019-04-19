@@ -353,3 +353,20 @@ BOOST_AUTO_TEST_CASE(sequence_NARS_MYCTU)
   );
 }
 
+BOOST_AUTO_TEST_CASE(sequence_NARS_MYCTU_and_LDT2_MYCTU)
+{
+  const auto m = calc_binding_freqs_cpp(
+    {
+      ">sp|O53857|NARS_MYCTU",
+      "iiiiiiiiiiiiIIIIIIIIIIIIIIIIIIIiiIIIIIIMMMMMMMMMMMMMMmmmmmmmmmoooommmmmmmmmmmmmMMMMMMMMMMIIIIIIIIIIIIIIIIIIIImmmmmmmMMMMMMMMMMMOOOMMMMMMmmmmmmmmmmmmiiiiiimmmmmmmmmmmmmmmmmmmmooooooooommMMMMMMMMMMMMMMMMIIIiiiIIIIIIIIIIIIIIIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiIIIIIIIIIIIIIIIIIIIiiiiii",
+      ">sp|I6Y9J2|LDT2_MYCTU",
+      "iiiiiiiiiiiiiiiiiiimmmmmmmmmmmmmmmmmmmmMMMOOOOOOOOOOOOOOOOOoooooooooOOOOOOOOOOOOOOOOooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOOOOOOOOOOOOOOOOOOOoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOOOOOOOOOOOOOOOOOOOOoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+    }
+  );
+  // Frequencies cannot exceed 1.0
+  BOOST_CHECK_EQUAL(
+    count_if(begin(m), end(m), [](const std::pair<double, double>& p) { return p.second > 1.01; }),
+    0
+  );
+}
+
