@@ -16,7 +16,8 @@ SOURCES += \
     src/create_epitopeome_cpp.cpp \
     src/create_epitopeome_file_cpp.cpp \
     src/create_locatome_cpp.cpp \
-    src/split_str_cpp.cpp
+    src/split_str_cpp.cpp \
+    cpp/test_do_elutes_bind.cpp
 
 HEADERS += \
     src/calc_binding_freqs_cpp.h \
