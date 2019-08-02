@@ -44,9 +44,6 @@ QMAKE_CXXFLAGS += -std=c++11
 # SFML goes bad with -Weffc++
 QMAKE_CXXFLAGS += -Wall -Wextra -Wnon-virtual-dtor -pedantic -Werror -Wshadow
 
-# Fix error: unrecognized option '--push-state--no-as-needed'
-QMAKE_LFLAGS += -fuse-ld=gold
-
 # Debug and release settings
 CONFIG += debug_and_release
 CONFIG(release, debug|release) {
