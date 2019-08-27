@@ -9,8 +9,8 @@ r_packages:
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr
-  - richelbilderbeek/netmhc2pan@develop
-  - richelbilderbeek/tmhmm@develop
+  - richelbilderbeek/netmhc2pan
+  - richelbilderbeek/tmhmm
   - MangoTheCat/goodpractice
   - ropensci/spelling
 
