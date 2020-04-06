@@ -18,4 +18,5 @@
 ^release$
 ^tmhmm.txt$
 ^LICENSE$
+^.qmake.stash$
 

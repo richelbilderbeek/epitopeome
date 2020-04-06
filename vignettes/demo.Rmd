@@ -110,14 +110,14 @@ epitopeome <- epitopeome::create_epitopeome(fasta_filename)
 `epitopeome` will return an 'epitopeome': the location
 of each amino acid:
 
-Epitopeum|Location|Binds strongly to MHC2 allele 
----|---|---
-`o`|Outside|No
-`i`|Inside|No
-`m`|Membrance|No
-`O`|Outside|Yes
-`I`|Inside|Yes
-`M`|Membrance|Yes
+Epitopeum|Location |Binds strongly to MHC2 allele 
+---------|---------|-----------------------------
+`o`      |Outside  |No
+`i`      |Inside   |No
+`m`      |Membrance|No
+`O`      |Outside  |Yes
+`I`      |Inside   |Yes
+`M`      |Membrance|Yes
 
 Here is how it looks like:
 
