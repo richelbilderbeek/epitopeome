@@ -47,7 +47,7 @@ BOOST_AUTO_TEST_CASE(test_do_elutes_bind)
     ;
     std::cerr << cmd.str();
     const int error = std::system(cmd.str().c_str());
-    BOOST_CHECK_EQUALT(0, error);
+    BOOST_CHECK_EQUAL(0, error);
   }
   const auto proteome = create_locatome_cpp(proteome_filename);
   const auto locatome = create_locatome_cpp(locatome_filename);

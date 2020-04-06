@@ -28,3 +28,7 @@ vignettes/*.pdf
 rsconnect/
 .Rproj.user
 epitopeome.pro.user
+release/
+Makefile
+.qmake.stash
+Makefile.*
