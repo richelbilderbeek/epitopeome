@@ -1,6 +1,6 @@
 Package: epitopeome
 Title: Create An Epitopeome
-Version: 1.0
+Version: 1.1
 Authors@R: 
     person(given = "Richel",
            family = "Bilderbeek",
