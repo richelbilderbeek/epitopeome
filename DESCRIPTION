@@ -34,6 +34,6 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 SystemRequirements: 
-    NetMHC2pan (https://services.healthtech.dtu.dk/service.php?NetMHCIIpan-3.2)
+    NetMHC2pan (https://services.healthtech.dtu.dk/service.php?NetMHCIIpan-3.2),
     TMHMM (https://services.healthtech.dtu.dk/service.php?TMHMM-2.0)
 
