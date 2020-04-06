@@ -32,12 +32,12 @@ devtools::install_github("richelbilderbeek/tmhmm")
 The `tmhmm` package relies on TMHMM that needs to be installed:
 
 ```{r}
-tmhmm::install_tmhmm("http://www.cbs.dtu.dk/download/D3198788-0F1D-11E9-883C-84B3B9CD16B5/")
+tmhmm::install_tmhmm("https://services.healthtech.dtu.dk/download/28c408dc-ef5e-47ad-a284-66754bcd27f7")
 ```
 
 The URL can be obtained by requesting a download link at 
-the [TMHMM](http://www.cbs.dtu.dk/services/TMHMM) website 
-at [http://www.cbs.dtu.dk/services/TMHMM](http://www.cbs.dtu.dk/services/TMHMM).
+the TMHMM website 
+at [https://services.healthtech.dtu.dk/service.php?TMHMM-2.0](https://services.healthtech.dtu.dk/service.php?TMHMM-2.0).
 As this URL expires after four hours, `tmhmm` cannot do this for you.
 
 The installation of NetMHC2pan is checked, with the goal of giving
@@ -57,12 +57,12 @@ devtools::install_github("richelbilderbeek/netmhc2pan")
 The `netmhc2pan` package relies on NetMHCIIpan that needs to be installed:
 
 ```{r}
-netmhc2pan::install_netmhc2pan("http://www.cbs.dtu.dk/download/33A6B0AC-0F2E-11E9-B4D1-8ABCB9CD16B5/")
+install_netmhc2pan("https://services.healthtech.dtu.dk/download/fb4dee93-ddbb-4639-ab21-45fdfd0ed23e")
 ```
 
 The URL can be obtained by requesting a download link at
-the [NetMHCIIpan](www.cbs.dtu.dk/services/NetMHCIIpan) website 
-at [www.cbs.dtu.dk/services/NetMHCIIpan]www.cbs.dtu.dk/services/NetMHCIIpan).
+the NetMHCIIpan website 
+at [https://services.healthtech.dtu.dk/service.php?NetMHCIIpan-3.2](https://services.healthtech.dtu.dk/service.php?NetMHCIIpan-3.2).
 As this URL expires after four hours, `netmhc2pan` cannot do this for you.
 
 The installation of NetMHC2pan is checked, with the goal of giving
