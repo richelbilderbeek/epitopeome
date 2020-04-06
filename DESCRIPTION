@@ -13,7 +13,7 @@ Description:
     MHC2.
     This package allows to create an 'epitopeome' 
     from these two information sources.
-License: GPL-3 | file LICENSE
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2
@@ -33,3 +33,7 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+SystemRequirements: 
+    NetMHC2pan (https://services.healthtech.dtu.dk/service.php?NetMHCIIpan-3.2)
+    TMHMM (https://services.healthtech.dtu.dk/service.php?TMHMM-2.0)
+
