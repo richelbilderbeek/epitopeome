@@ -5,9 +5,15 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(alleles, binding_strength_threshold,
-  epitopeome_filename, fasta_filename, netmhc2pan_filename, tmhmm_filename,
-  verbose)
+default_params_doc(
+  alleles,
+  binding_strength_threshold,
+  epitopeome_filename,
+  fasta_filename,
+  netmhc2pan_filename,
+  tmhmm_filename,
+  verbose
+)
 }
 \arguments{
 \item{alleles}{one or more alleles, e.g. \code{DRB1_0101}.

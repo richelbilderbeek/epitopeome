@@ -4,8 +4,11 @@
 \alias{create_epitopeome_file_cpp}
 \title{Creates a FASTA file with only the TMHs}
 \usage{
-create_epitopeome_file_cpp(tmhs_filename, netmhc2pan_filename,
-  epitopeome_filename)
+create_epitopeome_file_cpp(
+  tmhs_filename,
+  netmhc2pan_filename,
+  epitopeome_filename
+)
 }
 \arguments{
 \item{tmhs_filename}{file that contains the TMHs as created by TMHMM}

@@ -3,7 +3,6 @@
 \docType{package}
 \name{epitopeome}
 \alias{epitopeome}
-\alias{epitopeome-package}
 \title{epitopeome: Get only the TMH parts of a proteome}
 \description{
 epitopeome: Get only the TMH parts of a proteome

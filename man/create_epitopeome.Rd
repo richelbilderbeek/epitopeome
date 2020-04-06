@@ -4,10 +4,14 @@
 \alias{create_epitopeome}
 \title{Create epitopeome indicating strong MHC2 binders}
 \usage{
-create_epitopeome(fasta_filename, alleles = "DRB1_0101",
-  binding_strength_threshold = 5, tmhmm_filename = tempfile(fileext =
-  "txt"), netmhc2pan_filename = tempfile(fileext = ".csv"),
-  epitopeome_filename = tempfile(fileext = ".fasta"))
+create_epitopeome(
+  fasta_filename,
+  alleles = "DRB1_0101",
+  binding_strength_threshold = 5,
+  tmhmm_filename = tempfile(fileext = "txt"),
+  netmhc2pan_filename = tempfile(fileext = ".csv"),
+  epitopeome_filename = tempfile(fileext = ".fasta")
+)
 }
 \arguments{
 \item{fasta_filename}{the name of a FASTA file with protein sequences}
