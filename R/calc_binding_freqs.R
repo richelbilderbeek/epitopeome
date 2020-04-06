@@ -7,5 +7,5 @@
 calc_binding_freqs <- function(
   epitopeome
 ) {
-  calc_binding_freqs_cpp(epitopeome)
+  epitopeome::calc_binding_freqs_cpp(epitopeome)
 }
