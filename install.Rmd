@@ -1,0 +1,75 @@
+---
+title: "Install"
+author: "Richel J.C. Bilderbeek"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+The `epitopeome` package depends on the `tmhmm` package, which needs
+to be installed first:
+
+```{r}
+remotes::install_github("richelbilderbeek/tmhmm")
+```
+
+The `tmhmm` package relies on TMHMM that needs to be installed:
+
+```{r}
+tmhmm::install_tmhmm("http://www.cbs.dtu.dk/download/D3198788-0F1D-11E9-883C-84B3B9CD16B5/")
+```
+
+The URL can be obtained by requesting a download link at 
+the [TMHMM](http://www.cbs.dtu.dk/services/TMHMM) website 
+at [http://www.cbs.dtu.dk/services/TMHMM](http://www.cbs.dtu.dk/services/TMHMM).
+As this URL expires after four hours, `tmhmm` cannot do this for you.
+
+The installation of NetMHC2pan is checked, with the goal of giving
+a helpful error message:
+
+```{r}
+tmhmm::check_tmhmm_installation()
+```
+
+Additionall, The `epitopeome` package depends on the `netmhc2pan` package, which needs
+to be installed as well:
+
+```{r}
+remotes::install_github("richelbilderbeek/netmhc2pan")
+```
+
+The `netmhc2pan` package relies on NetMHCIIpan that needs to be installed:
+
+```{r}
+netmhc2pan::install_netmhc2pan("http://www.cbs.dtu.dk/download/33A6B0AC-0F2E-11E9-B4D1-8ABCB9CD16B5/")
+```
+
+The URL can be obtained by requesting a download link at
+the [NetMHCIIpan](www.cbs.dtu.dk/services/NetMHCIIpan) website 
+at [www.cbs.dtu.dk/services/NetMHCIIpan]www.cbs.dtu.dk/services/NetMHCIIpan).
+As this URL expires after four hours, `netmhc2pan` cannot do this for you.
+
+The installation of NetMHC2pan is checked, with the goal of giving
+a helpful error message:
+
+```{r}
+netmhc2pan::check_netmhc2pan_installation()
+```
+
+Installing the `epitopeome` package:
+
+```{r}
+remotes::install_github("richelbilderbeek/epitopeome")
+```
+
