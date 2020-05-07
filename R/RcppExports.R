@@ -7,7 +7,7 @@
 #'   with the distance to the center of a TMH as its key
 #'   (either x.0 or x.5),
 #'   and the fraction of peptides at that distance binding to MHC2
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 calc_binding_freqs_cpp <- function(epitopeome) {
     .Call(`_epitopeome_calc_binding_freqs_cpp`, epitopeome)
@@ -18,7 +18,7 @@ calc_binding_freqs_cpp <- function(epitopeome) {
 #' @param netmhc2pan_filename file that contains the NetMHC2pan results
 #' @return a map, with the sequence name as key, and its 'epitopeome'
 #'   as value
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_epitopeome_cpp <- function(tmhs_filename, netmhc2pan_filename) {
     .Call(`_epitopeome_create_epitopeome_cpp`, tmhs_filename, netmhc2pan_filename)
@@ -30,7 +30,7 @@ create_epitopeome_cpp <- function(tmhs_filename, netmhc2pan_filename) {
 #' @param epitopeome_filename name of the create epitopeome file, 
 #'   saved in FASTA format
 #' @return nothing
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_epitopeome_file_cpp <- function(tmhs_filename, netmhc2pan_filename, epitopeome_filename) {
     invisible(.Call(`_epitopeome_create_epitopeome_file_cpp`, tmhs_filename, netmhc2pan_filename, epitopeome_filename))
@@ -42,7 +42,7 @@ create_epitopeome_file_cpp <- function(tmhs_filename, netmhc2pan_filename, epito
 #'   as created by a locally installed TMHMM binary
 #' @return a dictionary with sequence names as key,
 #'   and a 'locatome' as values.
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_locatome_cpp <- function(tmhs_filename) {
     .Call(`_epitopeome_create_locatome_cpp`, tmhs_filename)
@@ -52,7 +52,7 @@ create_locatome_cpp <- function(tmhs_filename) {
 #' @param input the input string
 #' @param seperator the seperator
 #' @return a vector of strings
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 split_str <- function(input, seperator) {
     .Call(`_epitopeome_split_str`, input, seperator)
 }

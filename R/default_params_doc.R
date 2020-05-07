@@ -22,7 +22,7 @@
 #'   and will be put in the \code{/tmp} folder,
 #'   which is cleaned by the operating system
 #' @param verbose set to TRUE for more output
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
 #'   \code{@noRd}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters

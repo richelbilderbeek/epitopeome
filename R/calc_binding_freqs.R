@@ -2,7 +2,7 @@
 #' @param epitopeome an epitopeome
 #' @return a map of binding distance to fraction of binds at that
 #'   distance
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 calc_binding_freqs <- function(
   epitopeome

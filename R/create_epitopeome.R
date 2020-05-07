@@ -17,7 +17,7 @@
 #' expect_equal(10, stringr::str_count(epitopeome[2], "I"))
 #' expect_equal(37, stringr::str_count(epitopeome[2], "M"))
 #' expect_equal(17, stringr::str_count(epitopeome[2], "O"))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_epitopeome <- function(
   fasta_filename,
